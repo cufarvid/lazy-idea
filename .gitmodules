@@ -1,0 +1,8 @@
+[submodule "generate/lazyvim.github.io"]
+	path = generate/lazyvim.github.io
+	url = https://github.com/LazyVim/lazyvim.github.io.git
+	shallow = true
+[submodule "generate/LazyVim"]
+	path = generate/LazyVim
+	url = https://github.com/LazyVim/LazyVim.git
+	shallow = true

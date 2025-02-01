@@ -1,0 +1,470 @@
+## General
+j	Down
+<Down>	Down
+k	Up
+<Up>	Up
+<C-h>	Go to Left Window
+<C-j>	Go to Lower Window
+<C-k>	Go to Upper Window
+<C-l>	Go to Right Window
+<C-Up>	Increase Window Height
+<C-Down>	Decrease Window Height
+<C-Left>	Decrease Window Width
+<C-Right>	Increase Window Width
+<A-j>	Move Down
+<A-k>	Move Up
+<S-h>	Prev Buffer
+<S-l>	Next Buffer
+[b	Prev Buffer
+]b	Next Buffer
+<leader>bb	Switch to Other Buffer
+<leader>`	Switch to Other Buffer
+<leader>bd	Delete Buffer
+<leader>bo	Delete Other Buffers
+<leader>bD	Delete Buffer and Window
+<esc>	Escape and Clear hlsearch
+<leader>ur	Redraw / Clear hlsearch / Diff Update
+n	Next Search Result
+N	Prev Search Result
+<C-s>	Save File
+<leader>K	Keywordprg
+gco	Add Comment Below
+gcO	Add Comment Above
+<leader>l	Lazy
+<leader>fn	New File
+<leader>xl	Location List
+<leader>xq	Quickfix List
+[q	Previous Quickfix
+]q	Next Quickfix
+<leader>cf	Format
+<leader>cd	Line Diagnostics
+]d	Next Diagnostic
+[d	Prev Diagnostic
+]e	Next Error
+[e	Prev Error
+]w	Next Warning
+[w	Prev Warning
+<leader>uf	Toggle Auto Format (Global)
+<leader>uF	Toggle Auto Format (Buffer)
+<leader>us	Toggle Spelling
+<leader>uw	Toggle Wrap
+<leader>uL	Toggle Relative Number
+<leader>ud	Toggle Diagnostics
+<leader>ul	Toggle Line Numbers
+<leader>uc	Toggle Conceal Level
+<leader>uA	Toggle Tabline
+<leader>uT	Toggle Treesitter Highlight
+<leader>ub	Toggle Dark Background
+<leader>uD	Toggle Dimming
+<leader>ua	Toggle Animations
+<leader>ug	Toggle Indent Guides
+<leader>uS	Toggle Smooth Scroll
+<leader>dpp	Toggle Profiler
+<leader>dph	Toggle Profiler Highlights
+<leader>uh	Toggle Inlay Hints
+<leader>gb	Git Blame Line
+<leader>gB	Git Browse (open)
+<leader>gY	Git Browse (copy)
+<leader>qq	Quit All
+<leader>ui	Inspect Pos
+<leader>uI	Inspect Tree
+<leader>L	LazyVim Changelog
+<leader>fT	Terminal (cwd)
+<leader>ft	Terminal (Root Dir)
+<c-/>	Terminal (Root Dir)
+<c-_>	which_key_ignore
+<leader>-	Split Window Below
+<leader>|	Split Window Right
+<leader>wd	Delete Window
+<leader>wm	Toggle Zoom Mode
+<leader>uZ	Toggle Zoom Mode
+<leader>uz	Toggle Zen Mode
+<leader><tab>l	Last Tab
+<leader><tab>o	Close Other Tabs
+<leader><tab>f	First Tab
+<leader><tab><tab>	New Tab
+<leader><tab>]	Next Tab
+<leader><tab>d	Close Tab
+<leader><tab>[	Previous Tab
+## LSP
+<leader>cl	Lsp Info
+gd	Goto Definition
+gr	References
+gI	Goto Implementation
+gy	Goto T[y]pe Definition
+gD	Goto Declaration
+K	Hover
+gK	Signature Help
+<leader>ca	Code Action
+<leader>cc	Run Codelens
+<leader>cC	Refresh & Display Codelens
+<leader>cR	Rename File
+<leader>cr	Rename
+<leader>cA	Source Action
+]]	Next Reference
+[[	Prev Reference
+<a-n>	Next Reference
+<a-p>	Prev Reference
+## [bufferline.nvim](https://github.com/akinsho/bufferline.nvim.git)
+<leader>bl	Delete Buffers to the Left
+<leader>bp	Toggle Pin
+<leader>bP	Delete Non-Pinned Buffers
+<leader>br	Delete Buffers to the Right
+[b	Prev Buffer
+[B	Move buffer prev
+]b	Next Buffer
+]B	Move buffer next
+<S-h>	Prev Buffer
+<S-l>	Next Buffer
+## [conform.nvim](https://github.com/stevearc/conform.nvim.git)
+<leader>cF	Format Injected Langs
+## [flash.nvim](https://github.com/folke/flash.nvim.git)
+s	Flash
+S	Flash Treesitter
+## [fzf-lua](https://github.com/ibhagwan/fzf-lua.git)
+<leader><space>	Find Files (Root Dir)
+<leader>,	Switch Buffer
+<leader>/	Grep (Root Dir)
+<leader>:	Command History
+<leader>fb	Buffers
+<leader>fc	Find Config File
+<leader>ff	Find Files (Root Dir)
+<leader>fF	Find Files (cwd)
+<leader>fg	Find Files (git-files)
+<leader>fr	Recent
+<leader>fR	Recent (cwd)
+<leader>gc	Commits
+<leader>gs	Status
+<leader>s"	Registers
+<leader>sa	Auto Commands
+<leader>sb	Buffer
+<leader>sc	Command History
+<leader>sC	Commands
+<leader>sd	Document Diagnostics
+<leader>sD	Workspace Diagnostics
+<leader>sg	Grep (Root Dir)
+<leader>sG	Grep (cwd)
+<leader>sh	Help Pages
+<leader>sH	Search Highlight Groups
+<leader>sj	Jumplist
+<leader>sk	Key Maps
+<leader>sl	Location List
+<leader>sm	Jump to Mark
+<leader>sM	Man Pages
+<leader>sq	Quickfix List
+<leader>sR	Resume
+<leader>ss	Goto Symbol
+<leader>sS	Goto Symbol (Workspace)
+<leader>sw	Word (Root Dir)
+<leader>sW	Word (cwd)
+<leader>uC	Colorscheme with Preview
+## [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim.git)
+<leader>sr	Search and Replace
+## [mason.nvim](https://github.com/williamboman/mason.nvim.git)
+<leader>cm	Mason
+## [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim.git)
+<leader>be	Buffer Explorer
+<leader>e	Explorer NeoTree (Root Dir)
+<leader>E	Explorer NeoTree (cwd)
+<leader>fe	Explorer NeoTree (Root Dir)
+<leader>fE	Explorer NeoTree (cwd)
+<leader>ge	Git Explorer
+## [noice.nvim](https://github.com/folke/noice.nvim.git)
+<c-b>	Scroll Backward
+<c-f>	Scroll Forward
+<leader>sn	+noice
+<leader>sna	Noice All
+<leader>snd	Dismiss All
+<leader>snh	Noice History
+<leader>snl	Noice Last Message
+<leader>snt	Noice Picker (Telescope/FzfLua)
+## [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter.git)
+<c-space>	Increment Selection
+## [persistence.nvim](https://github.com/folke/persistence.nvim.git)
+<leader>qd	Don't Save Current Session
+<leader>ql	Restore Last Session
+<leader>qs	Restore Session
+<leader>qS	Select Session
+## [snacks.nvim](https://github.com/folke/snacks.nvim.git)
+<leader>.	Toggle Scratch Buffer
+<leader>dps	Profiler Scratch Buffer
+<leader>n	Notification History
+<leader>S	Select Scratch Buffer
+<leader>un	Dismiss All Notifications
+## [todo-comments.nvim](https://github.com/folke/todo-comments.nvim.git)
+<leader>st	Todo
+<leader>sT	Todo/Fix/Fixme
+<leader>xt	Todo (Trouble)
+<leader>xT	Todo/Fix/Fixme (Trouble)
+[t	Previous Todo Comment
+]t	Next Todo Comment
+## [trouble.nvim](https://github.com/folke/trouble.nvim.git)
+<leader>cs	Symbols (Trouble)
+<leader>cS	LSP references/definitions/... (Trouble)
+<leader>xL	Location List (Trouble)
+<leader>xQ	Quickfix List (Trouble)
+<leader>xx	Diagnostics (Trouble)
+<leader>xX	Buffer Diagnostics (Trouble)
+[q	Previous Trouble/Quickfix Item
+]q	Next Trouble/Quickfix Item
+## [which-key.nvim](https://github.com/folke/which-key.nvim.git)
+<c-w><space>	Window Hydra Mode (which-key)
+<leader>?	Buffer Keymaps (which-key)
+## [CopilotChat.nvim](https://github.com/CopilotC-Nvim/CopilotChat.nvim.git)
+<c-s>	Submit Prompt
+<leader>a	+ai
+<leader>aa	Toggle (CopilotChat)
+<leader>ap	Prompt Actions (CopilotChat)
+<leader>aq	Quick Chat (CopilotChat)
+<leader>ax	Clear (CopilotChat)
+## [mini.surround](https://github.com/echasnovski/mini.surround.git)
+gsa	Add Surrounding
+gsd	Delete Surrounding
+gsf	Find Right Surrounding
+gsF	Find Left Surrounding
+gsh	Highlight Surrounding
+gsn	Update `MiniSurround.config.n_lines`
+gsr	Replace Surrounding
+## [neogen](https://github.com/danymat/neogen.git)
+<leader>cn	Generate Annotations (Neogen)
+## [yanky.nvim](https://github.com/gbprod/yanky.nvim.git)
+<leader>p	Open Yank History
+<p	Put and Indent Left
+<P	Put Before and Indent Left
+=p	Put After Applying a Filter
+=P	Put Before Applying a Filter
+>p	Put and Indent Right
+>P	Put Before and Indent Right
+[p	Put Indented Before Cursor (Linewise)
+[P	Put Indented Before Cursor (Linewise)
+[y	Cycle Forward Through Yank History
+]p	Put Indented After Cursor (Linewise)
+]P	Put Indented After Cursor (Linewise)
+]y	Cycle Backward Through Yank History
+gp	Put Text After Selection
+gP	Put Text Before Selection
+p	Put Text After Cursor
+P	Put Text Before Cursor
+y	Yank Text
+## [nvim-dap](https://github.com/mfussenegger/nvim-dap.git)
+<leader>da	Run with Args
+<leader>db	Toggle Breakpoint
+<leader>dB	Breakpoint Condition
+<leader>dc	Run/Continue
+<leader>dC	Run to Cursor
+<leader>dg	Go to Line (No Execute)
+<leader>di	Step Into
+<leader>dj	Down
+<leader>dk	Up
+<leader>dl	Run Last
+<leader>do	Step Out
+<leader>dO	Step Over
+<leader>dP	Pause
+<leader>dr	Toggle REPL
+<leader>ds	Session
+<leader>dt	Terminate
+<leader>dw	Widgets
+## [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui.git)
+<leader>de	Eval
+<leader>du	Dap UI
+## [aerial.nvim](https://github.com/stevearc/aerial.nvim.git)
+<leader>cs	Aerial (Symbols)
+## [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim.git)
+<leader>ss	Goto Symbol (Aerial)
+## [dial.nvim](https://github.com/monaqa/dial.nvim.git)
+<C-a>	Increment
+<C-x>	Decrement
+g<C-a>	Increment
+g<C-x>	Decrement
+## [fzf-lua](https://github.com/ibhagwan/fzf-lua.git)
+<leader><space>	Find Files (Root Dir)
+<leader>,	Switch Buffer
+<leader>/	Grep (Root Dir)
+<leader>:	Command History
+<leader>fb	Buffers
+<leader>fc	Find Config File
+<leader>ff	Find Files (Root Dir)
+<leader>fF	Find Files (cwd)
+<leader>fg	Find Files (git-files)
+<leader>fr	Recent
+<leader>fR	Recent (cwd)
+<leader>gc	Commits
+<leader>gs	Status
+<leader>s"	Registers
+<leader>sa	Auto Commands
+<leader>sb	Buffer
+<leader>sc	Command History
+<leader>sC	Commands
+<leader>sd	Document Diagnostics
+<leader>sD	Workspace Diagnostics
+<leader>sg	Grep (Root Dir)
+<leader>sG	Grep (cwd)
+<leader>sh	Help Pages
+<leader>sH	Search Highlight Groups
+<leader>sj	Jumplist
+<leader>sk	Key Maps
+<leader>sl	Location List
+<leader>sm	Jump to Mark
+<leader>sM	Man Pages
+<leader>sq	Quickfix List
+<leader>sR	Resume
+<leader>ss	Goto Symbol
+<leader>sS	Goto Symbol (Workspace)
+<leader>sw	Word (Root Dir)
+<leader>sW	Word (cwd)
+<leader>uC	Colorscheme with Preview
+## [todo-comments.nvim](https://github.com/folke/todo-comments.nvim.git)
+<leader>st	Todo
+<leader>sT	Todo/Fix/Fixme
+## [harpoon](https://github.com/ThePrimeagen/harpoon.git)
+<leader>1	Harpoon to File 1
+<leader>2	Harpoon to File 2
+<leader>3	Harpoon to File 3
+<leader>4	Harpoon to File 4
+<leader>5	Harpoon to File 5
+<leader>h	Harpoon Quick Menu
+<leader>H	Harpoon File
+## [vim-illuminate](https://github.com/RRethy/vim-illuminate.git)
+[[	Prev Reference
+]]	Next Reference
+## [leap.nvim](https://github.com/ggandor/leap.nvim.git)
+gs	Leap from Windows
+s	Leap Forward to
+S	Leap Backward to
+## [mini.surround](https://github.com/echasnovski/mini.surround.git)
+gz	+surround
+## [mini.diff](https://github.com/echasnovski/mini.diff.git)
+<leader>go	Toggle mini.diff overlay
+## [mini.files](https://github.com/echasnovski/mini.files.git)
+<leader>fm	Open mini.files (Directory of Current File)
+<leader>fM	Open mini.files (cwd)
+## [outline.nvim](https://github.com/hedyhli/outline.nvim.git)
+<leader>cs	Toggle Outline
+## [overseer.nvim](https://github.com/stevearc/overseer.nvim.git)
+<leader>ob	Task builder
+<leader>oc	Clear cache
+<leader>oi	Overseer Info
+<leader>oo	Run task
+<leader>oq	Action recent task
+<leader>ot	Task action
+<leader>ow	Task list
+## [refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim.git)
+<leader>r	+refactor
+<leader>rb	Extract Block
+<leader>rc	Debug Cleanup
+<leader>rf	Extract Block To File
+<leader>ri	Inline Variable
+<leader>rp	Debug Print Variable
+<leader>rP	Debug Print
+## [snacks.nvim](https://github.com/folke/snacks.nvim.git)
+<leader><space>	Find Files (Root Dir)
+<leader>,	Buffers
+<leader>/	Grep (Root Dir)
+<leader>:	Command History
+<leader>fb	Buffers
+<leader>fB	Buffers (all)
+<leader>fc	Find Config File
+<leader>ff	Find Files (Root Dir)
+<leader>fF	Find Files (cwd)
+<leader>fg	Find Files (git-files)
+<leader>fp	Projects
+<leader>fr	Recent
+<leader>fR	Recent (cwd)
+<leader>gc	Git Log
+<leader>gd	Git Diff (hunks)
+<leader>gs	Git Status
+<leader>n	Notification History
+<leader>s"	Registers
+<leader>sa	Autocmds
+<leader>sb	Buffer Lines
+<leader>sB	Grep Open Buffers
+<leader>sc	Command History
+<leader>sC	Commands
+<leader>sd	Diagnostics
+<leader>sg	Grep (Root Dir)
+<leader>sG	Grep (cwd)
+<leader>sh	Help Pages
+<leader>sH	Highlights
+<leader>si	Icons
+<leader>sj	Jumps
+<leader>sk	Keymaps
+<leader>sl	Location List
+<leader>sm	Marks
+<leader>sM	Man Pages
+<leader>sp	Search for Plugin Spec
+<leader>sq	Quickfix List
+<leader>sR	Resume
+<leader>su	Undotree
+<leader>sw	Visual selection or word (Root Dir)
+<leader>sW	Visual selection or word (cwd)
+<leader>uC	Colorschemes
+## [todo-comments.nvim](https://github.com/folke/todo-comments.nvim.git)
+<leader>st	Todo
+<leader>sT	Todo/Fix/Fixme
+## [nvim-ansible](https://github.com/mfussenegger/nvim-ansible.git)
+<leader>ta	Ansible Run Playbook/Role
+## [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim.git)
+<leader>cp	Markdown Preview
+## [nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python.git)
+<leader>dPc	Debug Class
+<leader>dPt	Debug Method
+## [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui.git)
+<leader>D	Toggle DBUI
+## [vimtex](https://github.com/lervag/vimtex.git)
+<localLeader>l	+vimtex
+## [neotest](https://github.com/nvim-neotest/neotest.git)
+<leader>t	+test
+<leader>tl	Run Last (Neotest)
+<leader>to	Show Output (Neotest)
+<leader>tO	Toggle Output Panel (Neotest)
+<leader>tr	Run Nearest (Neotest)
+<leader>ts	Toggle Summary (Neotest)
+<leader>tS	Stop (Neotest)
+<leader>tt	Run File (Neotest)
+<leader>tT	Run All Test Files (Neotest)
+<leader>tw	Toggle Watch (Neotest)
+## [nvim-dap](https://github.com/mfussenegger/nvim-dap.git)
+<leader>td	Debug Nearest
+## [edgy.nvim](https://github.com/folke/edgy.nvim.git)
+<leader>ue	Edgy Toggle
+<leader>uE	Edgy Select Window
+## [chezmoi.nvim](https://github.com/xvzc/chezmoi.nvim.git)
+<leader>sz	Chezmoi
+## [mason.nvim](https://github.com/williamboman/mason.nvim.git)
+<leader>gg	GitUi (Root Dir)
+<leader>gG	GitUi (cwd)
+## [octo.nvim](https://github.com/pwntester/octo.nvim.git)
+<leader>gi	List Issues (Octo)
+<leader>gI	Search Issues (Octo)
+<leader>gp	List PRs (Octo)
+<leader>gP	Search PRs (Octo)
+<leader>gr	List Repos (Octo)
+<leader>gS	Search (Octo)
+<localleader>a	+assignee (Octo)
+<localleader>c	+comment/code (Octo)
+<localleader>g	+goto_issue (Octo)
+<localleader>i	+issue (Octo)
+<localleader>l	+label (Octo)
+<localleader>p	+pr (Octo)
+<localleader>pr	+rebase (Octo)
+<localleader>ps	+squash (Octo)
+<localleader>r	+react (Octo)
+<localleader>v	+review (Octo)
+## [fzf-lua](https://github.com/ibhagwan/fzf-lua.git)
+<leader>fp	Projects
+## [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim.git)
+<leader>fp	Projects
+## [kulala.nvim](https://github.com/mistweaverco/kulala.nvim.git)
+<leader>R	+Rest
+<leader>Rb	Open scratchpad
+<leader>Rc	Copy as cURL
+<leader>RC	Paste from curl
+<leader>Rg	Download GraphQL schema
+<leader>Ri	Inspect current request
+<leader>Rn	Jump to next request
+<leader>Rp	Jump to previous request
+<leader>Rq	Close window
+<leader>Rr	Replay the last request
+<leader>Rs	Send the request
+<leader>RS	Show stats
+<leader>Rt	Toggle headers/body
