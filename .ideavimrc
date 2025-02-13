@@ -156,7 +156,7 @@ nmap <leader>uT :echo 'There is no equivalent mapping for Toggle Treesitter High
 " Toggle Background
 nmap <leader>ub <Action>(QuickChangeScheme)
 " Toggle Inlay Hints
-nmap <leader>uh :echo 'There is no equivalent mapping for Toggle Inlay Hints.'<cr>
+nmap <leader>uh <Action>(ToggleInlayHintsGloballyAction)
 " Lazygit (Root Dir)
 nmap <leader>gg <Action>(ActivateCommitToolWindow)
 " Lazygit (cwd)
