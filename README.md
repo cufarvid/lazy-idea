@@ -11,14 +11,14 @@ Required plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com)
 
 ## Installation
 
-1. Copy the `.ideavimrc` file from this repository to your home directory:
+1. Download the `.ideavimrc` file from this repository to your home directory:
 
    ```bash
    # Unix/Linux/macOS
-   ~/.ideavimrc
+   curl -Lo ~/.ideavimrc https://raw.githubusercontent.com/cufarvid/lazy-idea/refs/heads/main/.ideavimrc
 
    # Windows
-   C:\Users\YourUsername\.ideavimrc
+   Invoke-WebRequest -OutFile "$HOME/.ideavimrc" -Uri https://raw.githubusercontent.com/cufarvid/lazy-idea/refs/heads/main/.ideavimrc
    ```
 
 2. Restart your JetBrains IDE
