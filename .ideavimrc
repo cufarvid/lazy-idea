@@ -41,8 +41,20 @@ set shortmess=filnxtToOF
 
 " gcc and gc<action> mappings.
 Plug 'tpope/vim-commentary'
-" s action, such as cs"' (replace " with '), ds" (unquote)
+
+" Emulate LazyVim mini.surround mappings
 Plug 'tpope/vim-surround'
+set g:surround_no_mappings = 1
+nmap gsa <Plug>YSurround
+nmap gsr <Plug>CSurround
+nmap gsd <Plug>DSurround
+
+" Use s to jump anywhere (similar to flash.nvim in LazyVim)
+set easymotion
+set g:EasyMotion_do_mapping = 0
+nmap s <Plug>(easymotion-s)
+vmap s <Plug>(easymotion-s)
+
 " Enable the whichkey plugin, available on Jetbrains marketplace
 set which-key
 " Extended matching.  A Neovim default plugin.
