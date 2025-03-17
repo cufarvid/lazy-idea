@@ -54,6 +54,7 @@ set easymotion
 set g:EasyMotion_do_mapping = 0
 nmap s <Plug>(easymotion-s)
 vmap s <Plug>(easymotion-s)
+omap s <Plug>(easymotion-s)
 
 " Enable the whichkey plugin, available on Jetbrains marketplace
 set which-key
