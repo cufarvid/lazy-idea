@@ -356,13 +356,13 @@ nmap <leader>ss <Action>(GotoSymbol)
 " Goto Symbol (Workspace)
 nmap <leader>sS <Action>(GotoSymbol)
 " Word (Root Dir)
-nmap <leader>sw <Action>(FindWordAtCaret)
+nmap <leader>sw mzviw<Action>(FindInPath)<esc>`z
 " Word (cwd)
-nmap <leader>sW <Action>(FindWordAtCaret)
+nmap <leader>sW mzviw<Action>(FindInPath)<esc>`z
 " Selection (Root Dir)
-vmap <leader>sw <Action>(FindWordAtCaret)
+vmap <leader>sw <Action>(FindInPath)
 " Selection (cwd)
-vmap <leader>sW <Action>(FindWordAtCaret)
+vmap <leader>sW <Action>(FindInPath)
 " Colorscheme with Preview
 nmap <leader>uC <Action>(QuickChangeScheme)
 
