@@ -46,6 +46,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 set g:surround_no_mappings = 1
 nmap gsa <Plug>YSurround
+xmap gsa <Plug>VSurround
 nmap gsr <Plug>CSurround
 nmap gsd <Plug>DSurround
 
@@ -53,7 +54,7 @@ nmap gsd <Plug>DSurround
 set easymotion
 set g:EasyMotion_do_mapping = 0
 nmap s <Plug>(easymotion-s)
-vmap s <Plug>(easymotion-s)
+xmap s <Plug>(easymotion-s)
 omap s <Plug>(easymotion-s)
 
 " Enable the whichkey plugin, available on Jetbrains marketplace
