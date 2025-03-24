@@ -260,13 +260,13 @@ nmap <leader>cr <Action>(RenameElement)
 " Source Action
 nmap <leader>cA <Action>(ShowIntentionActions)
 " Next Reference
-nmap ]] <Action>(GotoNextError)
+nmap ]] <Action>(GotoNextElementUnderCaretUsage)
 " Prev Reference
-nmap [[ <Action>(GotoPreviousError)
+nmap [[ <Action>(GotoPrevElementUnderCaretUsage)
 " Next Reference (alternative)
-nmap <a-n> <Action>(GotoNextError)
+nmap <a-n> <Action>(GotoNextElementUnderCaretUsage)
 " Prev Reference (alternative)
-nmap <a-p> <Action>(GotoPreviousError)
+nmap <a-p> <Action>(GotoPrevElementUnderCaretUsage)
 
 " Bufferline
 
