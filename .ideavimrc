@@ -421,17 +421,17 @@ nmap <leader>dw :echo 'There is no equivalent mapping for Widgets.'<cr>
 " Todo-comments Keymaps
 
 " Todo
-nmap <leader>st oTODO<esc>gcc
+nmap <leader>st <Action>(ActivateTODOToolWindow)
 " Todo/Fix/Fixme
-nmap <leader>sT :echo 'Not yet implemented.'<cr>
+nmap <leader>sT <Action>(ActivateTODOToolWindow)
 " Todo (Trouble)
-nmap <leader>xt :echo 'Not yet implemented.'<cr>
+nmap <leader>xt <Action>(ActivateTODOToolWindow)
 " Todo/Fix/Fixme (Trouble)
-nmap <leader>xT :echo 'Not yet implemented.'<cr>
+nmap <leader>xT <Action>(ActivateTODOToolWindow)
 " Previous Todo Comment
-nmap [t ?TODO<cr>
+nmap [t ?\(TODO\|FIX\|HACK\|WARN\|PERF\|NOTE\|TEST\):<cr>
 " Next Todo Comment
-nmap ]t /TODO<cr>
+nmap ]t /\(TODO\|FIX\|HACK\|WARN\|PERF\|NOTE\|TEST\):<cr>
 
 " DAP UI Keymaps
 

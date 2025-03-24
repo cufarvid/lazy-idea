@@ -24,6 +24,14 @@ Required plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com)
 
 2. Restart your JetBrains IDE
 
+## Configuration Notes
+
+### TODO Navigation
+
+The TODO navigation keymaps (`<leader>st`, `<leader>xt`) use IDEA's built-in TODO tool window.
+
+**Note:** To support additional patterns beyond `TODO` (like `FIX` or `PERF`), configure them in `Settings → Editor → TODO → Patterns`.
+
 ## Development
 
 ### Notes and Caveats
@@ -34,10 +42,10 @@ Required plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com)
 
 ### Roadmap
 
+- [x] Improve Todo comments functionality
 - [ ] Add Which-Key labels for all mappings
 - [ ] Test all mappings side-by-side with LazyVim
 - [ ] Compare Which-Key popups with LazyVim
-- [ ] Improve Todo comments functionality
 
 ### Future Considerations
 
