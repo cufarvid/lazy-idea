@@ -446,21 +446,21 @@ nmap <leader>du <Action>(ActivateDebugToolWindow)
 " Run Last
 nmap <leader>tl <Action>(Run)
 " Show Output
-nmap <leader>to :echo 'Not yet implemented.'<cr>
+nmap <leader>to <Action>(ActivateRunToolWindow)
 " Toggle Output Panel
-nmap <leader>tO :echo 'Not yet implemented.'<cr>
+nmap <leader>tO <Action>(ActivateRunToolWindow)
 " Run Nearest
 nmap <leader>tr <Action>(RunClass)
 " Toggle Summary
-nmap <leader>ts <Action>(ShowTestSummary)
+nmap <leader>ts :echo 'Not yet implmented.'<cr>
 " Stop
 nmap <leader>tS <Action>(Stop)
 " Run File
 nmap <leader>tt <Action>(RunClass)
 " Run All Test Files
-nmap <leader>tT <Action>(RunAllTests)
+nmap <leader>tT :echo 'Not yet implmented.'<cr>
 " Toggle Watch
-nmap <leader>tw <Action>(ToggleTestWatch)
+nmap <leader>tw :echo 'Not yet implmented.'<cr>
 
 " nvim-dap
 " Debug Nearest
