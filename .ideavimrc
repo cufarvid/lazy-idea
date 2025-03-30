@@ -476,3 +476,20 @@ inoremap <C-W> <C-G>u<C-W>
 nnoremap Q @@
 " There are several more Neovim mappings that need to be ported.
 
+
+" Harpooner (Harpoon for Jetbrains IDE) Keymaps
+
+" " Harpoon to File 1"
+" nmap <leader>1 <action>(HarpoonerOpenFile0)
+" " Harpoon to File 2"
+" nmap <leader>2 <action>(HarpoonerOpenFile1)
+" " Harpoon to File 3"
+" nmap <leader>3 <action>(HarpoonerOpenFile2)
+" " Harpoon to File 4"
+" nmap <leader>4 <action>(HarpoonerOpenFile3)
+" " Harpoon to File 5"
+" nmap <leader>5 <action>(HarpoonerOpenFile4)
+" " Harpoon Quick Menu"
+" nmap <leader>h <action>(HarpoonerToggleQuickMenu)
+" " Harpoon The File"
+" nmap <leader>H <action>(HarpoonerAddFile)
