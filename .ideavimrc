@@ -474,5 +474,10 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 " Q isn't exactly the same.
 nnoremap Q @@
+
+" Keep selection active after indenting in visual mode
+vnoremap > >gv
+vnoremap < <gv
+
 " There are several more Neovim mappings that need to be ported.
 
