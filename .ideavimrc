@@ -64,6 +64,10 @@ set matchit
 
 " Key maps
 
+" Variables for custom keymaps based on the current IDE flavor (:echo &ide).
+" https://github.com/JetBrains/ideavim/discussions/375
+let is_ide_rider = &ide == 'JetBrains Rider'
+
 " https://www.lazyvim.org/configuration/keymaps
 
 " To track Action-IDs
@@ -255,6 +259,7 @@ nmap <leader>cc :echo 'There is no equivalent mapping for Run Codelens.'<cr>
 nmap <leader>cC :echo 'There is no equivalent mapping for Refresh & Display Codelens.'<cr>
 " Rename File
 nmap <leader>cR <Action>(RenameFile)
+if is_ide_rider | nmap <leader>cR <Action>(RiderRenameFile) | endif
 " Rename
 nmap <leader>cr <Action>(RenameElement)
 " Source Action
@@ -445,26 +450,33 @@ nmap <leader>du <Action>(ActivateDebugToolWindow)
 
 " Run Last
 nmap <leader>tl <Action>(Run)
+if is_ide_rider | nmap <leader>tl <Action>(RiderUnitTestRunCurrentSessionAction) | endif
 " Show Output
 nmap <leader>to <Action>(ActivateRunToolWindow)
+if is_ide_rider | nmap <leader>to <Action>(ActivateUnitTestsToolWindow) | endif
 " Toggle Output Panel
 nmap <leader>tO <Action>(ActivateRunToolWindow)
+if is_ide_rider | nmap <leader>tO <Action>(ActivateUnitTestsToolWindow) | endif
 " Run Nearest
 nmap <leader>tr <Action>(RunClass)
+if is_ide_rider | nmap <leader>tr <Action>(RiderUnitTestRunContextAction) | endif
 " Toggle Summary
 nmap <leader>ts :echo 'Not yet implmented.'<cr>
 " Stop
 nmap <leader>tS <Action>(Stop)
 " Run File
 nmap <leader>tt <Action>(RunClass)
+if is_ide_rider | nmap <leader>tt <Action>(RiderUnitTestRunContextAction) | endif
 " Run All Test Files
 nmap <leader>tT :echo 'Not yet implmented.'<cr>
+if is_ide_rider | nmap <leader>tT <Action>(RiderUnitTestRunSolutionAction) | endif
 " Toggle Watch
 nmap <leader>tw :echo 'Not yet implmented.'<cr>
 
 " nvim-dap
 " Debug Nearest
 nmap <leader>td <Action>(ChooseDebugConfiguration)
+if is_ide_rider | nmap <leader>td <Action>(RiderUnitTestDebugContextAction) | endif
 
 " Neovim mappings
 " https://neovim.io/doc/user/vim_diff.html#_default-mappings
