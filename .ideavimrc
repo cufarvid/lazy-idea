@@ -466,6 +466,14 @@ nmap <leader>tw :echo 'Not yet implmented.'<cr>
 " Debug Nearest
 nmap <leader>td <Action>(ChooseDebugConfiguration)
 
+" Buffer Keymaps
+
+" Increment / Decrement Selection
+sethandler <C-Space> n:vim v:vim i:ide
+nmap <C-Space> <Action>(EditorSelectWord)
+vmap <C-Space> <Action>(EditorSelectWord)
+vmap <BS> <Action>(EditorUnSelectWord)
+
 " Neovim mappings
 " https://neovim.io/doc/user/vim_diff.html#_default-mappings
 
