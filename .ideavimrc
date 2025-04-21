@@ -89,9 +89,11 @@ nmap <C-Left> <Action>(DecrementWindowWidth)
 nmap <C-Right> <Action>(IncrementWindowWidth)
 " Move Down
 nmap <A-j> <Action>(MoveLineDown)
+vmap <A-j> <Action>(MoveLineDown)
 imap <A-j> <Esc><Action>(MoveLineDown)i
 " Move Up
 nmap <A-k> <Action>(MoveLineUp)
+vmap <A-k> <Action>(MoveLineUp)
 imap <A-k> <Esc><Action>(MoveLineUp)i
 " Prev Buffer
 nmap <S-h> <Action>(PreviousTab)
