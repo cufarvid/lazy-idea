@@ -24,6 +24,8 @@ set notimeout
 set undolevels=10000
 " Disable line wrap
 set nowrap
+" Enable copy/paste to/from system keyboard
+set clipboard+=unnamedplus
 
 " Neovim settings that differ from Vim
 " https://neovim.io/doc/user/diff.html
