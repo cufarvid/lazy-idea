@@ -24,6 +24,32 @@ Required plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com)
 
 2. Restart your JetBrains IDE
 
+## Extra Plugins integrations
+
+### Harpooner (Harpoon for JetBrains IDEs)
+
+Installation link for : [Harpooner](https://plugins.jetbrains.com/plugin/21796-harpooner)
+
+**What to Do**:
+
+Uncomment following piece of code in your `.ideavimrc`
+```
+" " Harpoon to File 1"
+" nmap <leader>1 <action>(HarpoonerOpenFile0)
+" " Harpoon to File 2"
+" nmap <leader>2 <action>(HarpoonerOpenFile1)
+" " Harpoon to File 3"
+" nmap <leader>3 <action>(HarpoonerOpenFile2)
+" " Harpoon to File 4"
+" nmap <leader>4 <action>(HarpoonerOpenFile3)
+" " Harpoon to File 5"
+" nmap <leader>5 <action>(HarpoonerOpenFile4)
+" " Harpoon Quick Menu"
+" nmap <leader>h <action>(HarpoonerToggleQuickMenu)
+" " Harpoon The File"
+" nmap <leader>H <action>(HarpoonerAddFile)
+```
+
 ## Configuration Notes
 
 ### TODO Navigation
@@ -55,7 +81,6 @@ Potential integrations with LazyVim features:
 - Noice
 - Trouble
 - Mini.diff
-- Harpoon
 - Outline
 - Markdown Preview
 
