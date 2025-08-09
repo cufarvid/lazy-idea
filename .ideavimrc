@@ -61,8 +61,25 @@ omap s <Plug>(easymotion-s)
 
 " Enable the whichkey plugin, available on Jetbrains marketplace
 set which-key
+
 " Extended matching.  A Neovim default plugin.
 set matchit
+
+" Indent text objects (ai, ii, aI, iI)
+set textobj-indent
+
+" Remap ai to behave like aI to match LazyVim behavior
+" (LazyVim's vai includes closing lines)
+xmap ai <Plug>textobj-indent-aI
+omap ai <Plug>textobj-indent-aI
+
+" Entire file text objects (ag, ig)
+set textobj-entire
+" Remap to LazyVim conventions
+xmap ag <Plug>textobj-entire-a
+omap ag <Plug>textobj-entire-a
+xmap ig <Plug>textobj-entire-i
+omap ig <Plug>textobj-entire-i
 
 " Key maps
 
