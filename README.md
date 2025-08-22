@@ -43,9 +43,8 @@ The TODO navigation keymaps (`<leader>st`, `<leader>xt`) use IDEA's built-in TOD
 ### Roadmap
 
 - [x] Improve Todo comments functionality
-- [ ] Add Which-Key labels for all mappings
+- [x] Add Which-Key labels for all mappings
 - [ ] Test all mappings side-by-side with LazyVim
-- [ ] Compare Which-Key popups with LazyVim
 
 ### Future Considerations
 
