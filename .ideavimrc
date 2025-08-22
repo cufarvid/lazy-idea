@@ -41,47 +41,78 @@ set shortmess=filnxtToOF
 " https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
 " https://www.lazyvim.org/plugins
 
-" gcc and gc<action> mappings.
+
+" ========================================
+" Plugin Configurations
+" ========================================
+
+" Commentary - gcc and gc<action> mappings
 Plug 'tpope/vim-commentary'
 
-" Emulate LazyVim mini.surround mappings
+" Surround - Emulate LazyVim mini.surround mappings
 Plug 'tpope/vim-surround'
 let g:surround_no_mappings = 1
+let g:WhichKeyDesc_surround = "gs surround"
+let g:WhichKeyDesc_surround_add = "gsa Add Surrounding"
 nmap gsa <Plug>YSurround
 xmap gsa <Plug>VSurround
-nmap gsr <Plug>CSurround
+
+let g:WhichKeyDesc_surround_delete = "gsd Delete Surrounding"
 nmap gsd <Plug>DSurround
 
-" Use s to jump anywhere (similar to flash.nvim in LazyVim)
+let g:WhichKeyDesc_surround_replace = "gsr Replace Surrounding"
+nmap gsr <Plug>CSurround
+
+
+" EasyMotion - Use s to jump anywhere (similar to flash.nvim in LazyVim)
 set easymotion
 let g:EasyMotion_do_mapping = 0
+let g:WhichKeyDesc_easymotion = "s Flash"
 nmap s <Plug>(easymotion-s)
 xmap s <Plug>(easymotion-s)
 omap s <Plug>(easymotion-s)
 
-" Enable the whichkey plugin, available on Jetbrains marketplace
+
+" Which-Key plugin
 set which-key
 
-" Extended matching.  A Neovim default plugin.
-set matchit
+" Which-Key group descriptions
+let g:WhichKeyDesc_leader_c = "<leader>c code"
+let g:WhichKeyDesc_leader_d = "<leader>d debug" 
+let g:WhichKeyDesc_leader_f = "<leader>f file/find"
+let g:WhichKeyDesc_leader_g = "<leader>g git"
+let g:WhichKeyDesc_leader_q = "<leader>q quit"
+let g:WhichKeyDesc_leader_s = "<leader>s search"
+let g:WhichKeyDesc_leader_t = "<leader>t test"
+let g:WhichKeyDesc_leader_u = "<leader>u ui"
+let g:WhichKeyDesc_leader_w = "<leader>w window"
+let g:WhichKeyDesc_leader_x = "<leader>x diagnostics/quickfix"
+let g:WhichKeyDesc_leader_tab = "<leader><tab> tabs"
 
-" Indent text objects (ai, ii, aI, iI)
-set textobj-indent
+" Additional plugins
+set matchit  " Extended matching - A Neovim default plugin
+set textobj-indent  " Indent text objects (ai, ii, aI, iI)
+set textobj-entire  " Entire file text objects (ag, ig)
 
 " Remap ai to behave like aI to match LazyVim behavior
 " (LazyVim's vai includes closing lines)
+let g:WhichKeyDesc_textobj_indent = "ai indent"
 xmap ai <Plug>textobj-indent-aI
 omap ai <Plug>textobj-indent-aI
 
-" Entire file text objects (ag, ig)
-set textobj-entire
-" Remap to LazyVim conventions
+" Entire file text objects - Remap to LazyVim conventions
+let g:WhichKeyDesc_textobj_a_entire = "ag entire file"
 xmap ag <Plug>textobj-entire-a
 omap ag <Plug>textobj-entire-a
+
+let g:WhichKeyDesc_textobj_i_entire = "ig entire file"
 xmap ig <Plug>textobj-entire-i
 omap ig <Plug>textobj-entire-i
 
-" Key maps
+
+" ========================================
+" Key Mappings
+" ========================================
 
 " Variables for custom keymaps based on the current IDE flavor (:echo &ide).
 " https://github.com/JetBrains/ideavim/discussions/375
@@ -92,422 +123,628 @@ let is_ide_rider = &ide == 'JetBrains Rider'
 " To track Action-IDs
 " :action VimFindActionIdAction
 
-" General Keymaps
 
-" Go to Left Window
+" ========================================
+" General Keymaps
+" ========================================
+
+let g:WhichKeyDesc_window_left = "<C-h> Go to Left Window"
 nmap <C-h> <C-w>h
-" Go to Lower Window
+
+let g:WhichKeyDesc_window_down = "<C-j> Go to Lower Window"
 nmap <C-j> <C-w>j
-" Go to Upper Window
+
+let g:WhichKeyDesc_window_up = "<C-k> Go to Upper Window"
 nmap <C-k> <C-w>k
-" Go to Right Window
+
+let g:WhichKeyDesc_window_right = "<C-l> Go to Right Window"
 nmap <C-l> <C-w>l
-" Increase Window Height
+
+let g:WhichKeyDesc_window_height_inc = "<C-Up> Increase Window Height"
 nmap <C-Up> <Action>(IncrementWindowHeight)
-" Decrease Window Height
+
+let g:WhichKeyDesc_window_height_dec = "<C-Down> Decrease Window Height"
 nmap <C-Down> <Action>(DecrementWindowHeight)
-" Decrease Window Width
+
+let g:WhichKeyDesc_window_width_dec = "<C-Left> Decrease Window Width"
 nmap <C-Left> <Action>(DecrementWindowWidth)
-" Increase Window Width
+
+let g:WhichKeyDesc_window_width_inc = "<C-Right> Increase Window Width"
 nmap <C-Right> <Action>(IncrementWindowWidth)
-" Move Down
+
+let g:WhichKeyDesc_move_down = "<A-j> Move Down"
 nmap <A-j> <Action>(MoveLineDown)
 vmap <A-j> <Action>(MoveLineDown)
 imap <A-j> <Esc><Action>(MoveLineDown)i
-" Move Up
+
+let g:WhichKeyDesc_move_up = "<A-k> Move Up"
 nmap <A-k> <Action>(MoveLineUp)
 vmap <A-k> <Action>(MoveLineUp)
 imap <A-k> <Esc><Action>(MoveLineUp)i
-" Prev Buffer
+
+let g:WhichKeyDesc_buffer_prev = "<S-h> Prev Buffer"
 nmap <S-h> <Action>(PreviousTab)
-" Next Buffer
+
+let g:WhichKeyDesc_buffer_next = "<S-l> Next Buffer"
 nmap <S-l> <Action>(NextTab)
-" Prev Buffer (alternative)
+
+let g:WhichKeyDesc_buffer_prev_alt = "[b Prev Buffer"
 nmap [b <Action>(PreviousTab)
-" Next Buffer (alternative)
+
+let g:WhichKeyDesc_buffer_next_alt = "]b Next Buffer"
 nmap ]b <Action>(NextTab)
-" Switch to Other Buffer
+
+let g:WhichKeyDesc_buffer_switch = "<leader>bb Switch to Other Buffer"
 nnoremap <leader>bb <C-^>
-" Switch to Other Buffer (alternative)
+
+let g:WhichKeyDesc_buffer_switch_alt = "<leader>` Switch to Other Buffer"
 nnoremap <leader>` <C-^>
-" Delete Buffer
+
+let g:WhichKeyDesc_buffer_delete = "<leader>bd Delete Buffer"
 nmap <leader>bd <Action>(CloseContent)
-" Delete Buffer and Window
+
+let g:WhichKeyDesc_buffer_delete_window = "<leader>bD Delete Buffer and Window"
 nmap <leader>bD <Action>(CloseContent)
-" Delete Other Buffers
+
+let g:WhichKeyDesc_buffer_delete_others = "<leader>bo Delete Other Buffers"
 nmap <leader>bo <Action>(CloseAllEditorsButActive)
-" Escape and Clear hlsearch
+
+let g:WhichKeyDesc_escape_clear = "<esc> Escape and Clear hlsearch"
 nmap <esc> :nohlsearch<CR>
+
+let g:WhichKeyDesc_redraw_clear = "<leader>ur Redraw / Clear hlsearch / Diff Update"
 nmap <leader>ur :nohlsearch<CR>
-" Keywordprg
+
+let g:WhichKeyDesc_keywordprg = "<leader>K Keywordprg"
 nmap <leader>K :help<space><C-r><C-w><CR>
-" Add Comment Below
+
+let g:WhichKeyDesc_comment_below = "gco Add Comment Below"
 nmap gco o<c-o>gcc
-" Add Comment Above
+
+let g:WhichKeyDesc_comment_above = "gcO Add Comment Above"
 nmap gcO O<c-o>gcc
-" Lazy
+
+let g:WhichKeyDesc_lazy = "<leader>l Lazy"
 nmap <leader>l <Action>(WelcomeScreen.Plugins)
-" New File
+
+let g:WhichKeyDesc_file_new = "<leader>fn New File"
 nmap <leader>fn <Action>(NewElementSamePlace)
-" Location List
+
+let g:WhichKeyDesc_location_list = "<leader>xl Location List"
 nmap <leader>xl <Action>(ActivateProblemsViewToolWindow)
-" Quickfix List
+
+let g:WhichKeyDesc_quickfix_list = "<leader>xq Quickfix List"
 nmap <leader>xq <Action>(ActivateProblemsViewToolWindow)
-" Previous Quickfix
+
+let g:WhichKeyDesc_quickfix_prev = "[q Previous Quickfix"
 nmap [q <Action>(GotoPreviousError)
-" Next Quickfix
+
+let g:WhichKeyDesc_quickfix_next = "]q Next Quickfix"
 nmap ]q <Action>(GotoNextError)
-" Format
+
+let g:WhichKeyDesc_format = "<leader>cf Format"
 nmap <leader>cf <Action>(Format)
 vmap <leader>cf <Action>(Format)
-" Line Diagnostics
+
+let g:WhichKeyDesc_diagnostics_line = "<leader>cd Line Diagnostics"
 nmap <leader>cd <Action>(ActivateProblemsViewToolWindow)
-" Next Diagnostic
+
+let g:WhichKeyDesc_diagnostic_next = "]d Next Diagnostic"
 nmap ]d <Action>(GotoNextError)
-" Prev Diagnostic
+
+let g:WhichKeyDesc_diagnostic_prev = "[d Prev Diagnostic"
 nmap [d <Action>(GotoPreviousError)
-" Next Error
+
+let g:WhichKeyDesc_error_next = "]e Next Error"
 nmap ]e <Action>(GotoNextError)
-" Prev Error
+
+let g:WhichKeyDesc_error_prev = "[e Prev Error"
 nmap [e <Action>(GotoPreviousError)
-" Next Warning
+
+let g:WhichKeyDesc_warning_next = "]w Next Warning"
 nmap ]w <Action>(GotoNextError)
-" Prev Warning
+
+let g:WhichKeyDesc_warning_prev = "[w Prev Warning"
 nmap [w <Action>(GotoPreviousError)
-" Toggle Auto Format (Global)
+
+let g:WhichKeyDesc_ui_auto_format_global = "<leader>uf Toggle Auto Format (Global)"
 nmap <leader>ub :echo 'There is no equivalent mapping for Toggle Auto Format.'<cr>
-" Toggle Auto Format (Buffer)
+
+let g:WhichKeyDesc_ui_auto_format_buffer = "<leader>uF Toggle Auto Format (Buffer)"
 nmap <leader>uB :echo 'There is no equivalent mapping for Toggle Auto Format.'<cr>
-" Toggle Spelling
+
+let g:WhichKeyDesc_ui_spelling = "<leader>us Toggle Spelling"
 nmap <leader>us :setlocal spell!<CR>
-" Toggle Wrap
+
+let g:WhichKeyDesc_ui_wrap = "<leader>uw Toggle Wrap"
 nmap <leader>uw :setlocal wrap!<CR>
-" Toggle Relative Number
+
+let g:WhichKeyDesc_ui_relative_number = "<leader>uL Toggle Relative Number"
 nmap <leader>uL :set relativenumber!<CR>
-" Toggle Diagnostics
+
+let g:WhichKeyDesc_ui_diagnostics = "<leader>ud Toggle Diagnostics"
 nmap <leader>ud <Action>(ActivateProblemsViewToolWindow)
-" Toggle Line Numbers
+
+let g:WhichKeyDesc_ui_line_numbers = "<leader>ul Toggle Line Numbers"
 nmap <leader>ul :set number!<CR>
-" Toggle conceallevel
+
+let g:WhichKeyDesc_ui_conceal = "<leader>uc Toggle Conceal Level"
 nmap <leader>uc :echo 'There is no equivalent mapping for Toggle Conceallevel.'<cr>
-" Toggle Treesitter Highlight
+
+let g:WhichKeyDesc_ui_treesitter = "<leader>uT Toggle Treesitter Highlight"
 nmap <leader>uT :echo 'There is no equivalent mapping for Toggle Treesitter Highlight.'<cr>
-" Toggle Background
+
+let g:WhichKeyDesc_ui_background = "<leader>ub Toggle Dark Background"
 nmap <leader>ub <Action>(QuickChangeScheme)
-" Toggle Inlay Hints
+
+let g:WhichKeyDesc_ui_inlay_hints = "<leader>uh Toggle Inlay Hints"
 nmap <leader>uh <Action>(ToggleInlayHintsGloballyAction)
-" Lazygit (Root Dir)
+
+let g:WhichKeyDesc_git_ui = "<leader>gg GitUi (Root Dir)"
 nmap <leader>gg <Action>(ActivateCommitToolWindow)
-" Lazygit (cwd)
+
+let g:WhichKeyDesc_git_ui_cwd = "<leader>gG GitUi (cwd)"
 nmap <leader>gG <Action>(ActivateCommitToolWindow)
-" Git Blame Line
+
+let g:WhichKeyDesc_git_blame = "<leader>gb Git Blame Line"
 nmap <leader>gb <Action>(Annotate)
-" Git Browse
+
+let g:WhichKeyDesc_git_browse = "<leader>gB Git Browse (open)"
 nmap <leader>gB <Action>(Vcs.Show.Log)
-" Lazygit Current File History
+
+let g:WhichKeyDesc_git_file_history = "<leader>gf Git File History"
 nmap <leader>gf <Action>(Vcs.ShowTabbedFileHistory)
-" Lazygit Log
+
+let g:WhichKeyDesc_git_log = "<leader>gl Git Log"
 nmap <leader>gl <Action>(Vcs.Show.Log)
-" Lazygit Log (cwd)
+
+let g:WhichKeyDesc_git_log_cwd = "<leader>gL Git Log (cwd)"
 nmap <leader>gL <Action>(Vcs.Show.Log)
-" Quit All
+
+let g:WhichKeyDesc_quit_all = "<leader>qq Quit All"
 nmap <leader>qq <Action>(Exit)
-" Inspect Pos
+
+let g:WhichKeyDesc_inspect_pos = "<leader>ui Inspect Pos"
 nmap <leader>ui <Action>(ActivateStructureToolWindow)
-" Inspect Tree
+
+let g:WhichKeyDesc_inspect_tree = "<leader>uI Inspect Tree"
 nmap <leader>uI <Action>(ActivateStructureToolWindow)
-" LazyVim Changelog
+
+let g:WhichKeyDesc_changelog = "<leader>L LazyVim Changelog"
 nmap <leader>L <Action>(WhatsNewAction)
-" Terminal (Root Dir)
+
+let g:WhichKeyDesc_terminal = "<leader>ft Terminal (Root Dir)"
 nmap <leader>ft <Action>(ActivateTerminalToolWindow)
-" Terminal (cwd)
+
+let g:WhichKeyDesc_terminal_cwd = "<leader>fT Terminal (cwd)"
 nmap <leader>fT <Action>(ActivateTerminalToolWindow)
-" Terminal (Root Dir)
+
+let g:WhichKeyDesc_terminal_ctrl = "<C-/> Terminal (Root Dir)"
 nmap <C-/> <Action>(ActivateTerminalToolWindow)
+
 " nmap <C-_> 'There is no equivalent mapping for <c-_>.'<cr>
 " Hide Terminal - terminal mode maps not possible
-" Split Window Below.  :split<cr> doesn't work.
+let g:WhichKeyDesc_split_below = "<leader>- Split Window Below"
 nmap <leader>- <c-w>s
-" Split Window Right
+
+let g:WhichKeyDesc_split_right = "<leader>| Split Window Right"
 nmap <leader><bar> <c-w>v
-" Delete Window
+
+let g:WhichKeyDesc_window_delete = "<leader>wd Delete Window"
 nmap <leader>wd <Action>(CloseContent)
-" Toggle Maximize
+
+let g:WhichKeyDesc_window_maximize = "<leader>wm Toggle Zoom Mode"
 nmap <leader>wm <Action>(ToggleDistractionFreeMode)
 
-" Tabs are treated as saved layouts
 
-" Last Tab
+" ========================================
+" Tab Management (Saved Layouts)
+" ========================================
+
+let g:WhichKeyDesc_tab_last = "<leader><tab>l Last Tab"
 nmap <leader><tab>l <Action>(StoreDefaultLayout)<Action>(ChangeToolWindowLayout)
-" Close Other Tabs
+
+let g:WhichKeyDesc_tab_close_others = "<leader><tab>o Close Other Tabs"
 nmap <leader><tab>o :<cr>
-" First Tab
+
+let g:WhichKeyDesc_tab_first = "<leader><tab>f First Tab"
 nmap <leader><tab>f <Action>(StoreDefaultLayout)<Action>(ChangeToolWindowLayout)
-" New Tab
+
+let g:WhichKeyDesc_tab_new = "<leader><tab><tab> New Tab"
 nmap <leader><tab>f <Action>(StoreDefaultLayout)<Action>(StoreNewLayout)
-" Next Tab
+
+let g:WhichKeyDesc_tab_next = "<leader><tab>] Next Tab"
 nmap <leader><tab>] <Action>(StoreDefaultLayout)<Action>(ChangeToolWindowLayout)
-" Previous Tab
+
+let g:WhichKeyDesc_tab_previous = "<leader><tab>[ Previous Tab"
 nmap <leader><tab>[ <Action>(StoreDefaultLayout)<Action>(ChangeToolWindowLayout)
-" Close Tab
+
+let g:WhichKeyDesc_tab_close = "<leader><tab>d Close Tab"
 nmap <leader><tab>f <Action>(StoreDefaultLayout)<Action>(ChangeToolWindowLayout)
 
-" LSP Keymaps
 
-" Lsp Info
+" ========================================
+" LSP Keymaps
+" ========================================
+
+let g:WhichKeyDesc_code_lsp_info = "<leader>cl Lsp Info"
 nmap <leader>cc :echo 'There is no equivalent mapping for Lsp Info.'<cr>
-" Goto Definition
+
+let g:WhichKeyDesc_goto_definition = "gd Goto Definition"
 nmap gd <Action>(GotoDeclaration)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" References
+
+" Code Navigation
+let g:WhichKeyDesc_references = "gr References"
 nmap gr <Action>(FindUsages)
-" Goto Implementation
+
+let g:WhichKeyDesc_goto_implementation = "gI Goto Implementation"
 nmap gI <Action>(GotoImplementation)
-" Goto Type Definition
+
+let g:WhichKeyDesc_goto_type = "gy Goto T[y]pe Definition"
 nmap gy <Action>(GotoTypeDeclaration)
-" Goto Declaration
+
+let g:WhichKeyDesc_goto_declaration = "gD Goto Declaration"
 nmap gD <Action>(GotoDeclaration)
-" Signature Help
+
+let g:WhichKeyDesc_signature_help = "gK Signature Help"
 nmap gK <Action>(ParameterInfo)
-" Signature Help in Insert Mode
+
+let g:WhichKeyDesc_signature_help_alt = "<C-k> Signature Help"
 imap <C-k> <C-o><Action>(ParameterInfo)
-" Code Action
+
+let g:WhichKeyDesc_code_action = "<leader>ca Code Action"
 nmap <leader>ca <Action>(RefactoringMenu)
 vmap <leader>ca <Action>(RefactoringMenu)
-" Run Codelens
+
+let g:WhichKeyDesc_code_lens = "<leader>cc Run Codelens"
 nmap <leader>cc :echo 'There is no equivalent mapping for Run Codelens.'<cr>
-" Refresh & Display Codelens
+
+let g:WhichKeyDesc_code_lens_refresh = "<leader>cC Refresh & Display Codelens"
 nmap <leader>cC :echo 'There is no equivalent mapping for Refresh & Display Codelens.'<cr>
-" Rename File
+
+let g:WhichKeyDesc_rename_file = "<leader>cR Rename File"
 nmap <leader>cR <Action>(RenameFile)
 if is_ide_rider | nmap <leader>cR <Action>(RiderRenameFile) | endif
-" Rename
+
+let g:WhichKeyDesc_rename = "<leader>cr Rename"
 nmap <leader>cr <Action>(RenameElement)
-" Source Action
+
+let g:WhichKeyDesc_source_action = "<leader>cA Source Action"
 nmap <leader>cA <Action>(ShowIntentionActions)
-" Next Reference
+
+let g:WhichKeyDesc_reference_next = "]] Next Reference"
 nmap ]] <Action>(GotoNextElementUnderCaretUsage)
-" Prev Reference
+
+let g:WhichKeyDesc_reference_prev = "[[ Prev Reference"
 nmap [[ <Action>(GotoPrevElementUnderCaretUsage)
-" Next Reference (alternative)
+
+let g:WhichKeyDesc_reference_next_alt = "<A-n> Next Reference"
 nmap <a-n> <Action>(GotoNextElementUnderCaretUsage)
-" Prev Reference (alternative)
+
+let g:WhichKeyDesc_reference_prev_alt = "<A-p> Prev Reference"
 nmap <a-p> <Action>(GotoPrevElementUnderCaretUsage)
 
-" Bufferline
 
-" Delete buffers to the left
+" ========================================
+" Bufferline
+" ========================================
+
+let g:WhichKeyDesc_buffer_left = "<leader>bl Delete Buffers to the Left"
 nmap <leader>bl <Action>(CloseAllToTheLeft)
-" Toggle pin
+
+let g:WhichKeyDesc_buffer_pin = "<leader>bp Toggle Pin"
 nmap <leader>bp <Action>(PinActiveTabToggle)
-" Delete Non-Pinned Buffers
+
+let g:WhichKeyDesc_buffer_pin_delete = "<leader>bP Delete Non-Pinned Buffers"
 nmap <leader>bP <Action>(CloseAllUnpinnedEditors)
-" Delete buffers to the right
+
+let g:WhichKeyDesc_buffer_right = "<leader>br Delete Buffers to the Right"
 nmap <leader>br <Action>(CloseAllToTheRight)
 
-" Neo-tree Keymaps
 
-" Buffer Explorer
+" ========================================
+" Explorer/Tree Keymaps
+" ========================================
+
+let g:WhichKeyDesc_buffer_explorer = "<leader>be Buffer Explorer"
 nmap <leader>be <Action>(ActivateProjectToolWindow)
-" Explorer NeoTree (Root Dir)
+
+let g:WhichKeyDesc_explorer = "<leader>e Explorer NeoTree (Root Dir)"
 nmap <leader>e <Action>(FileStructurePopup)
-" Explorer NeoTree (cwd)
+
+let g:WhichKeyDesc_explorer_cwd = "<leader>E Explorer NeoTree (cwd)"
 nmap <leader>E <Action>(SelectInProjectView)
-" Explorer NeoTree (Root Dir) (alternative)
+
+let g:WhichKeyDesc_explorer_alt = "<leader>fe Explorer NeoTree (Root Dir)"
 nmap <leader>fe <Action>(ActivateProjectToolWindow)
-" Explorer NeoTree (cwd) (alternative)
+
+let g:WhichKeyDesc_explorer_cwd_alt = "<leader>fE Explorer NeoTree (cwd)"
 nmap <leader>fE <Action>(ActivateProjectToolWindow)
-" Git Explorer
+
+let g:WhichKeyDesc_git_explorer = "<leader>ge Git Explorer"
 nmap <leader>ge <Action>(ActivateVersionControlToolWindow)
 
-" Notifications (noice, snacks)
 
+" ========================================
+" Notifications
+" ========================================
+
+let g:WhichKeyDesc_search_dismiss = "<leader>snd Dismiss All"
 nmap <leader>snd <Action>(ClearAllNotifications)
+
+let g:WhichKeyDesc_ui_notifications = "<leader>un Dismiss All Notifications"
 nmap <leader>un <Action>(ClearAllNotifications)
 
-" Telescope Keymaps
 
-" Find Files (Root Dir)
+" ========================================
+" Search/Find Keymaps (Telescope-like)
+" ========================================
+
+let g:WhichKeyDesc_find_files = "<leader><space> Find Files (Root Dir)"
 nmap <leader><space> <Action>(GotoFile)
-" Switch Buffer
+
+let g:WhichKeyDesc_buffers = "<leader>, Buffers"
 nmap <leader>, <Action>(Switcher)
-" Grep (Root Dir)
+
+let g:WhichKeyDesc_grep = "<leader>/ Grep (Root Dir)"
 nmap <leader>/ <Action>(FindInPath)
-" Command History
+
+let g:WhichKeyDesc_command_history = "<leader>: Command History"
 nmap <leader>: :history<cr>
-" Buffers
+
+let g:WhichKeyDesc_find_buffers = "<leader>fb Buffers"
 nmap <leader>fb <Action>(Switcher)
-" Find Config File
+
+let g:WhichKeyDesc_find_config = "<leader>fc Find Config File"
 nmap <leader>fc <Action>(GotoFile)
-" Find Files (Root Dir) (alternative)
+
+let g:WhichKeyDesc_find_files_alt = "<leader>ff Find Files (Root Dir)"
 nmap <leader>ff <Action>(GotoFile)
-" Find Files (cwd)
+
+let g:WhichKeyDesc_find_files_cwd = "<leader>fF Find Files (cwd)"
 nmap <leader>fF <Action>(GotoFile)
-" Find Files (git-files)
+
+let g:WhichKeyDesc_find_git_files = "<leader>fg Find Files (git-files)"
 nmap <leader>fg <Action>(GotoFile)
-" Recent
+
+let g:WhichKeyDesc_find_recent = "<leader>fr Recent"
 nmap <leader>fr <Action>(RecentFiles)
-" Recent (cwd)
+
+let g:WhichKeyDesc_find_recent_cwd = "<leader>fR Recent (cwd)"
 nmap <leader>fR <Action>(RecentFiles)
-" Commits
+
+let g:WhichKeyDesc_git_commits = "<leader>gc Git Log"
 nmap <leader>gc <Action>(Vcs.Show.Log)
-" Status
+
+let g:WhichKeyDesc_git_status = "<leader>gs Git Status"
 nmap <leader>gs <Action>(Vcs.Show.Log)
-" Registers
+
+let g:WhichKeyDesc_search_registers = "<leader>s\" Registers"
 nmap <leader>s" :registers<cr>
-" Auto Commands
+
+let g:WhichKeyDesc_search_autocmds = "<leader>sa Autocmds"
 nmap <leader>sa :echo 'There is no equivalent mapping.'<cr>
-" Buffer
+
+let g:WhichKeyDesc_search_buffer = "<leader>sb Buffer Lines"
 nmap <leader>sb <Action>(Switcher)
-" Command History (alternative)
+
+let g:WhichKeyDesc_search_command_history = "<leader>sc Command History"
 nmap <leader>sc :history<cr>
-" Commands
+
+let g:WhichKeyDesc_search_commands = "<leader>sC Commands"
 nmap <leader>sC <Action>(GotoAction)
-" Document Diagnostics
+
+let g:WhichKeyDesc_search_diagnostics = "<leader>sd Diagnostics"
 nmap <leader>sd <Action>(ActivateProblemsViewToolWindow)
-" Workspace Diagnostics
+
+let g:WhichKeyDesc_search_diagnostics_workspace = "<leader>sD Workspace Diagnostics"
 nmap <leader>sD <Action>(ActivateProblemsViewToolWindow)
-" Grep (Root Dir) (alternative)
+
+let g:WhichKeyDesc_search_grep = "<leader>sg Grep (Root Dir)"
 nmap <leader>sg <Action>(FindInPath)
-" Grep (cwd)
+
+let g:WhichKeyDesc_search_grep_cwd = "<leader>sG Grep (cwd)"
 nmap <leader>sG <Action>(FindInPath)
-" Help Pages
+
+let g:WhichKeyDesc_search_help = "<leader>sh Help Pages"
 nmap <leader>sh <Action>(HelpTopics)
-" Search Highlight Groups
+
+let g:WhichKeyDesc_search_highlights = "<leader>sH Highlights"
 nmap <leader>sH <Action>(HighlightUsagesInFile)
-" Jumplist
+
+let g:WhichKeyDesc_search_jumps = "<leader>sj Jumps"
 nmap <leader>sj <Action>(RecentLocations)
-" Key Maps
+
+let g:WhichKeyDesc_search_keymaps = "<leader>sk Keymaps"
 nmap <leader>sk :map<cr>
-" Location List
+
+let g:WhichKeyDesc_search_location_list = "<leader>sl Location List"
 nmap <leader>sl <Action>(ActivateProblemsViewToolWindow)
-" Jump to Mark
+
+let g:WhichKeyDesc_search_marks = "<leader>sm Marks"
 nmap <leader>sm :marks<cr>
-" Man Pages
+
+let g:WhichKeyDesc_search_man = "<leader>sM Man Pages"
 nmap <leader>sM <Action>(ShowDocumentation)
-" Options
+
+let g:WhichKeyDesc_search_options = "<leader>so Options"
 nmap <leader>so <Action>(ShowSettings)
-" Quickfix List
+
+let g:WhichKeyDesc_search_quickfix = "<leader>sq Quickfix List"
 nmap <leader>sq <Action>(ActivateProblemsViewToolWindow)
-" Resume
+
+let g:WhichKeyDesc_search_resume = "<leader>sR Resume"
 nmap <leader>sR :echo 'Not yet implmented.'<cr>
-" Goto Symbol
+
+let g:WhichKeyDesc_search_symbol = "<leader>ss Goto Symbol"
 nmap <leader>ss <Action>(GotoSymbol)
-" Goto Symbol (Workspace)
+
+let g:WhichKeyDesc_search_symbol_workspace = "<leader>sS Goto Symbol (Workspace)"
 nmap <leader>sS <Action>(GotoSymbol)
-" Word (Root Dir)
+
+let g:WhichKeyDesc_search_word = "<leader>sw Visual selection or word (Root Dir)"
 nmap <leader>sw mzviw<Action>(FindInPath)<esc>`z
-" Word (cwd)
-nmap <leader>sW mzviw<Action>(FindInPath)<esc>`z
-" Selection (Root Dir)
 vmap <leader>sw <Action>(FindInPath)
-" Selection (cwd)
+
+let g:WhichKeyDesc_search_word_cwd = "<leader>sW Visual selection or word (cwd)"
+nmap <leader>sW mzviw<Action>(FindInPath)<esc>`z
 vmap <leader>sW <Action>(FindInPath)
-" Colorscheme with Preview
+
+let g:WhichKeyDesc_ui_colorscheme = "<leader>uC Colorschemes"
 nmap <leader>uC <Action>(QuickChangeScheme)
 
 
-" DAP Keymaps
+" ========================================
+" Debug (DAP) Keymaps
+" ========================================
 
-" Run with Args
+let g:WhichKeyDesc_debug_args = "<leader>da Run with Args"
 nmap <leader>da <Action>(ChooseRunConfiguration)
-" Toggle Breakpoint
+
+let g:WhichKeyDesc_debug_breakpoint = "<leader>db Toggle Breakpoint"
 nmap <leader>db <Action>(ToggleLineBreakpoint)
-" Breakpoint Condition
+
+let g:WhichKeyDesc_debug_breakpoint_condition = "<leader>dB Breakpoint Condition"
 nmap <leader>dB <Action>(AddConditionalBreakpoint)
-" Continue
+
+let g:WhichKeyDesc_debug_continue = "<leader>dc Run/Continue"
 nmap <leader>dc <Action>(Resume)
-" Run to Cursor
+
+let g:WhichKeyDesc_debug_cursor = "<leader>dC Run to Cursor"
 nmap <leader>dC <Action>(ForceRunToCursor)
-" Go to Line (No Execute)
+
+let g:WhichKeyDesc_debug_goto_line = "<leader>dg Go to Line (No Execute)"
 nmap <leader>dg :echo 'Not yet implemented.'<cr>
-" Step Into
+
+let g:WhichKeyDesc_debug_step_into = "<leader>di Step Into"
 nmap <leader>di <Action>(StepInto)
-" Down
+
+let g:WhichKeyDesc_debug_down = "<leader>dj Down"
 nmap <leader>dj <Action>(GotoNextError)
-" Up
+
+let g:WhichKeyDesc_debug_up = "<leader>dk Up"
 nmap <leader>dk <Action>(GotoPreviousError)
-" Run Last
+
+let g:WhichKeyDesc_debug_last = "<leader>dl Run Last"
 nmap <leader>dl <Action>(Debug)
-" Step Out
+
+let g:WhichKeyDesc_debug_step_out = "<leader>do Step Out"
 nmap <leader>do <Action>(StepOut)
-" Step Over
+
+let g:WhichKeyDesc_debug_step_over = "<leader>dO Step Over"
 nmap <leader>dO <Action>(StepOver)
-" Pause
+
+let g:WhichKeyDesc_debug_pause = "<leader>dP Pause"
 nmap <leader>dp <Action>(Pause)
-" Toggle REPL
+
+let g:WhichKeyDesc_debug_repl = "<leader>dr Toggle REPL"
 nmap <leader>dr <Action>(JShell.Console)
-" Session
+
+let g:WhichKeyDesc_debug_session = "<leader>ds Session"
 nmap <leader>ds :echo 'Not yet implmented.'<cr>
-" Terminate
+
+let g:WhichKeyDesc_debug_terminate = "<leader>dt Terminate"
 nmap <leader>dt <Action>(Stop)
-" Widgets
+
+let g:WhichKeyDesc_debug_widgets = "<leader>dw Widgets"
 nmap <leader>dw :echo 'There is no equivalent mapping for Widgets.'<cr>
 
-" Todo-comments Keymaps
 
-" Todo
+" ========================================
+" Todo Comments Keymaps
+" ========================================
+
+let g:WhichKeyDesc_search_todo = "<leader>st Todo"
 nmap <leader>st <Action>(ActivateTODOToolWindow)
-" Todo/Fix/Fixme
+
+let g:WhichKeyDesc_search_todo_fixme = "<leader>sT Todo/Fix/Fixme"
 nmap <leader>sT <Action>(ActivateTODOToolWindow)
-" Todo (Trouble)
+
+let g:WhichKeyDesc_quickfix_todo = "<leader>xt Todo (Trouble)"
 nmap <leader>xt <Action>(ActivateTODOToolWindow)
-" Todo/Fix/Fixme (Trouble)
+
+let g:WhichKeyDesc_quickfix_todo_fixme = "<leader>xT Todo/Fix/Fixme (Trouble)"
 nmap <leader>xT <Action>(ActivateTODOToolWindow)
-" Previous Todo Comment
+
+let g:WhichKeyDesc_todo_prev = "[t Previous Todo Comment"
 nmap [t ?\(TODO\|FIX\|HACK\|WARN\|PERF\|NOTE\|TEST\):<cr>
-" Next Todo Comment
+
+let g:WhichKeyDesc_todo_next = "]t Next Todo Comment"
 nmap ]t /\(TODO\|FIX\|HACK\|WARN\|PERF\|NOTE\|TEST\):<cr>
 
-" DAP UI Keymaps
 
-" Eval
+" ========================================
+" Debug UI Keymaps
+" ========================================
+
+let g:WhichKeyDesc_debug_eval = "<leader>de Eval"
 nmap <leader>de <Action>(EvaluateExpression)
 vmap <leader>de <Action>(EvaluateExpression)
-" Dap UI
+
+let g:WhichKeyDesc_debug_ui = "<leader>du Dap UI"
 nmap <leader>du <Action>(ActivateDebugToolWindow)
 
-" Neotest Keymaps
 
-" Run Last
+" ========================================
+" Test Keymaps
+" ========================================
+
+let g:WhichKeyDesc_test_last = "<leader>tl Run Last (Neotest)"
 nmap <leader>tl <Action>(Run)
 if is_ide_rider | nmap <leader>tl <Action>(RiderUnitTestRunCurrentSessionAction) | endif
-" Show Output
+
+let g:WhichKeyDesc_test_output = "<leader>to Show Output (Neotest)"
 nmap <leader>to <Action>(ActivateRunToolWindow)
 if is_ide_rider | nmap <leader>to <Action>(ActivateUnitTestsToolWindow) | endif
-" Toggle Output Panel
+
+let g:WhichKeyDesc_test_output_panel = "<leader>tO Toggle Output Panel (Neotest)"
 nmap <leader>tO <Action>(ActivateRunToolWindow)
 if is_ide_rider | nmap <leader>tO <Action>(ActivateUnitTestsToolWindow) | endif
-" Run Nearest
+
+let g:WhichKeyDesc_test_nearest = "<leader>tr Run Nearest (Neotest)"
 nmap <leader>tr <Action>(RunClass)
 if is_ide_rider | nmap <leader>tr <Action>(RiderUnitTestRunContextAction) | endif
-" Toggle Summary
+
+let g:WhichKeyDesc_test_summary = "<leader>ts Toggle Summary (Neotest)"
 nmap <leader>ts :echo 'Not yet implmented.'<cr>
-" Stop
+
+let g:WhichKeyDesc_test_stop = "<leader>tS Stop (Neotest)"
 nmap <leader>tS <Action>(Stop)
-" Run File
+
+let g:WhichKeyDesc_test_file = "<leader>tt Run File (Neotest)"
 nmap <leader>tt <Action>(RunClass)
 if is_ide_rider | nmap <leader>tt <Action>(RiderUnitTestRunContextAction) | endif
-" Run All Test Files
+
+let g:WhichKeyDesc_test_all = "<leader>tT Run All Test Files (Neotest)"
 nmap <leader>tT :echo 'Not yet implmented.'<cr>
 if is_ide_rider | nmap <leader>tT <Action>(RiderUnitTestRunSolutionAction) | endif
-" Toggle Watch
+
+let g:WhichKeyDesc_test_watch = "<leader>tw Toggle Watch (Neotest)"
 nmap <leader>tw :echo 'Not yet implmented.'<cr>
 
 " nvim-dap
-" Debug Nearest
+let g:WhichKeyDesc_test_debug = "<leader>td Debug Nearest"
 nmap <leader>td <Action>(ChooseDebugConfiguration)
 if is_ide_rider | nmap <leader>td <Action>(RiderUnitTestDebugContextAction) | endif
 
-" Buffer Keymaps
+
+" ========================================
+" Buffer/Selection Keymaps
+" ========================================
 
 " Increment / Decrement Selection
 sethandler <C-Space> n:vim v:vim i:ide
+let g:WhichKeyDesc_selection_increment = "<C-Space> Increment Selection"
 nmap <C-Space> <Action>(EditorSelectWord)
 vmap <C-Space> <Action>(EditorSelectWord)
+
+let g:WhichKeyDesc_selection_decrement = "<BS> Decrement Selection"
 vmap <BS> <Action>(EditorUnSelectWord)
 
-" Neovim mappings
+
+" ========================================
+" Neovim Default Mappings
+" ========================================
 " https://neovim.io/doc/user/vim_diff.html#_default-mappings
 
 nnoremap Y y$
