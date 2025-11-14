@@ -18,50 +18,116 @@ This project provides a comprehensive `.ideavimrc` configuration that replicates
 
 ```
 lazy-idea/
-├── .ideavimrc          # Main configuration file (760+ lines)
+├── .ideavimrc          # Main entry point (sources all modules)
 ├── README.md           # User-facing documentation
 ├── LICENSE             # MIT License
-└── .gitattributes      # Git configuration
+├── CLAUDE.md           # This file - AI assistant guide
+├── .gitattributes      # Git configuration
+└── lazy-idea/          # Configuration modules
+    ├── settings.vim    # LazyVim defaults, Neovim compatibility
+    ├── plugins.vim     # Plugin configurations
+    ├── editor.vim      # Window, buffer, UI, terminal keymaps
+    ├── code.vim        # Code navigation, LSP, refactoring
+    ├── git.vim         # Git operations
+    ├── search.vim      # Search/find, TODO comments
+    ├── debug.vim       # Debug (DAP) keymaps
+    ├── test.vim        # Test framework integration
+    └── defaults.vim    # Neovim defaults, smart selection
 ```
 
 ### Key Files
 
-- **`.ideavimrc`**: The heart of the project - a single VimScript configuration file containing:
-  - Plugin configurations (commentary, surround, easymotion, which-key)
-  - LazyVim-compatible settings
-  - 200+ keymapping definitions organized by category
-  - IDE-specific customizations (e.g., Rider support)
-  - Which-Key labels for discoverability
+- **`.ideavimrc`**: Entry point that sources all configuration modules
+- **`lazy-idea/settings.vim`**: Core settings (leader keys, visual settings, Neovim compatibility)
+- **`lazy-idea/plugins.vim`**: Plugin configurations (commentary, surround, easymotion, which-key, text objects)
+- **`lazy-idea/editor.vim`**: General editor keymaps (windows, buffers, UI, terminal, notifications)
+- **`lazy-idea/code.vim`**: Code/LSP keymaps (navigation, refactoring, actions)
+- **`lazy-idea/git.vim`**: Git operations
+- **`lazy-idea/search.vim`**: Search/find operations and TODO comments
+- **`lazy-idea/debug.vim`**: Debug (DAP) keymaps
+- **`lazy-idea/test.vim`**: Test framework integration
+- **`lazy-idea/defaults.vim`**: Neovim defaults and smart selection
 
 ## Core Architecture
 
-### File Structure in .ideavimrc
+### Modular Configuration Structure
 
-The configuration is organized into logical sections (lines referenced for context):
+The configuration uses a modular architecture inspired by [intellimacs](https://github.com/marcoieni/intellimacs). The main `.ideavimrc` file sources individual modules, allowing users to:
 
-1. **LazyVim Default Settings** (lines 1-28): Leader keys, visual settings, clipboard integration
-2. **Neovim Compatibility Settings** (lines 30-37): Settings that differ from Vim
-3. **Plugin Configurations** (lines 45-111):
+- **Customize easily**: Comment out modules you don't need
+- **Maintain clearly**: Each file has a focused purpose
+- **Debug efficiently**: Issues are isolated to specific modules
+- **Extend simply**: Add new modules without touching existing code
+
+### Module Breakdown
+
+1. **`settings.vim`** - Core Settings
+   - Leader keys configuration (`<Space>` as leader, `\` as localleader)
+   - LazyVim default settings (line numbers, scroll context, clipboard)
+   - Neovim compatibility settings (backspace, formatoptions, etc.)
+
+2. **`plugins.vim`** - Plugin Configurations
    - `vim-commentary`: Comment toggling with `gcc`, `gc<action>`
    - `vim-surround`: Surround text with LazyVim mappings (`gsa`, `gsd`, `gsr`)
    - `easymotion`: Jump navigation with `s` (flash.nvim equivalent)
-   - `which-key`: Command palette and keybinding hints
+   - `which-key`: Command palette and keybinding hints with group descriptions
    - `textobj-indent`: Indent text objects (`ai`, `ii`, `aI`, `iI`)
    - `textobj-entire`: Entire file text objects (`ag`, `ig`)
 
-4. **Key Mapping Categories** (lines 114-730):
-   - General Keymaps: Window navigation, buffer management, line movement
-   - Tab Management: Saved layouts (JetBrains-specific)
-   - LSP Keymaps: Code navigation, refactoring, actions
-   - Bufferline: Buffer manipulation
-   - Explorer/Tree: File navigation
-   - Search/Find: Telescope-like fuzzy finding
-   - Debug (DAP): Debugging controls
-   - Test: Testing framework integration
-   - Selection: Smart text selection
-   - Neovim Defaults: Standard Neovim mappings
+3. **`editor.vim`** - General Editor Keymaps
+   - Window navigation and management (`<C-hjkl>`, splits, zoom)
+   - Line movement (`<A-jk>`)
+   - Buffer management (`<S-hl>`, delete, pin, etc.)
+   - Tab/Layout management (JetBrains-specific saved layouts)
+   - Explorer/File tree operations
+   - Terminal integration
+   - UI toggles (spell, wrap, line numbers, diagnostics, etc.)
+   - Notifications
+   - Quickfix/diagnostics navigation
 
-5. **Neovim Default Mappings** (lines 746-760): Standard Neovim behavior
+4. **`code.vim`** - Code/LSP Keymaps
+   - Code navigation (`gd`, `gr`, `gI`, `gy`, `gD`)
+   - Signature help (`gK`, `<C-k>`)
+   - Reference navigation (`]]`, `[[`, `<A-n>`, `<A-p>`)
+   - Code actions and refactoring (`<leader>ca`, `<leader>cA`)
+   - Rename operations (`<leader>cr`, `<leader>cR`)
+   - Formatting (`<leader>cf`)
+   - IDE-specific customizations (e.g., Rider file rename)
+
+5. **`git.vim`** - Git Operations
+   - Git UI (`<leader>gg`, `<leader>gG`)
+   - Git blame (`<leader>gb`)
+   - Git log/history (`<leader>gl`, `<leader>gf`)
+   - Git status and commits
+   - Git explorer
+
+6. **`search.vim`** - Search/Find Operations
+   - File finding (Telescope-like: `<leader><space>`, `<leader>ff`)
+   - Buffer switching (`<leader>,`, `<leader>fb`)
+   - Grep operations (`<leader>/`, `<leader>sg`)
+   - Recent files (`<leader>fr`)
+   - Symbol search (`<leader>ss`, `<leader>sS`)
+   - Word search (`<leader>sw`, `<leader>sW`)
+   - Various search modes (diagnostics, help, keymaps, marks, etc.)
+   - TODO comments navigation (`<leader>st`, `[t`, `]t`)
+
+7. **`debug.vim`** - Debug (DAP) Keymaps
+   - Breakpoint management (`<leader>db`, `<leader>dB`)
+   - Debug controls (`<leader>dc`, `<leader>dt`)
+   - Step operations (`<leader>di`, `<leader>do`, `<leader>dO`)
+   - Debug UI (`<leader>du`, `<leader>de`)
+   - REPL toggle (`<leader>dr`)
+
+8. **`test.vim`** - Test Framework Integration
+   - Run tests (`<leader>tl`, `<leader>tr`, `<leader>tt`)
+   - Test output (`<leader>to`, `<leader>tO`)
+   - Debug tests (`<leader>td`)
+   - IDE-specific test runners (e.g., Rider unit tests)
+
+9. **`defaults.vim`** - Neovim Defaults & Selection
+   - Smart selection (`<C-Space>`, `<BS>`)
+   - Neovim-standard mappings (`Y`, `Q`, `<C-U>`, `<C-W>`)
+   - Visual mode enhancements (keep selection after indent)
 
 ### Plugin Integration Pattern
 
@@ -233,17 +299,19 @@ Users must install these plugins for full functionality:
 
 ### Installation
 
-Users install by downloading `.ideavimrc` to their home directory:
+Users install by cloning the repository to `~/.lazy-idea`:
 
 **Unix/Linux/macOS**:
 ```bash
-curl -Lo ~/.ideavimrc https://raw.githubusercontent.com/cufarvid/lazy-idea/refs/heads/main/.ideavimrc
+git clone https://github.com/cufarvid/lazy-idea.git ~/.lazy-idea
 ```
 
-**Windows**:
+**Windows (PowerShell)**:
 ```powershell
-Invoke-WebRequest -OutFile "$HOME/.ideavimrc" -Uri https://raw.githubusercontent.com/cufarvid/lazy-idea/refs/heads/main/.ideavimrc
+git clone https://github.com/cufarvid/lazy-idea.git "$HOME/.lazy-idea"
 ```
+
+The modular structure allows users to customize by commenting out unwanted modules in `.ideavimrc`.
 
 ## Configuration Notes for Users
 
@@ -259,24 +327,37 @@ To support additional patterns beyond `TODO` (like `FIX`, `PERF`), users must co
 
 1. **Identify the LazyVim mapping** you want to replicate
 2. **Find the corresponding JetBrains action** using `:action VimFindActionIdAction`
-3. **Add to the appropriate section** in `.ideavimrc`
+3. **Choose the appropriate module** based on the mapping category:
+   - Editor operations → `editor.vim`
+   - Code/LSP operations → `code.vim`
+   - Git operations → `git.vim`
+   - Search/find → `search.vim`
+   - Debug → `debug.vim`
+   - Test → `test.vim`
+   - Core settings → `settings.vim`
+   - Plugin configs → `plugins.vim`
 4. **Follow the pattern**:
    ```vim
    let g:WhichKeyDesc_category_action = "key Description"
    nmap key <Action>(ActionID)
    ```
-5. **Add Which-Key group description** if creating a new leader group
+5. **Add Which-Key group description** to `plugins.vim` if creating a new leader group
 6. **Test in multiple JetBrains IDEs** if possible
-7. **Check for IDE-specific behavior** (e.g., Rider differences)
+7. **Check for IDE-specific behavior** (e.g., Rider differences) - use conditional logic:
+   ```vim
+   let is_ide_rider = &ide == 'JetBrains Rider'
+   if is_ide_rider | nmap <key> <Action>(RiderSpecificAction) | endif
+   ```
 8. **Document in commit message** using conventional commits
 
 ### When Fixing Bugs
 
-1. **Identify the affected mapping(s)** in `.ideavimrc`
-2. **Test the fix** in the relevant JetBrains IDE(s)
-3. **Verify no regression** in other mappings
-4. **Use `fix:` commit prefix**
-5. **Reference issue/PR number** if applicable
+1. **Identify the affected module(s)** (e.g., `code.vim`, `editor.vim`)
+2. **Locate the affected mapping(s)** in that module
+3. **Test the fix** in the relevant JetBrains IDE(s)
+4. **Verify no regression** in other mappings
+5. **Use `fix:` commit prefix**
+6. **Reference issue/PR number** if applicable
 
 ### When Updating Documentation
 
@@ -319,22 +400,18 @@ To support additional patterns beyond `TODO` (like `FIX`, `PERF`), users must co
 - [Which-Key Plugin](https://github.com/TheBlob42/idea-which-key)
 - [Original Gist by mikeslattery](https://gist.github.com/mikeslattery/d2f2562e5bbaa7ef036cf9f5a13deff5)
 
-### Line Number References
+### Module References
 
-When referencing code in `.ideavimrc`, use line numbers:
-- Settings: lines 6-37
-- Plugin configurations: lines 45-111
-- General keymaps: lines 114-338
-- Tab management: lines 340-364
-- LSP keymaps: lines 366-426
-- Bufferline: lines 428-443
-- Explorer/Tree: lines 445-466
-- Notifications: lines 468-477
-- Search/Find: lines 479-595
-- Debug (DAP): lines 597-686
-- Test keymaps: lines 688-729
-- Selection: lines 731-743
-- Neovim defaults: lines 745-760
+When referencing code, use module names and descriptions:
+- **settings.vim**: LazyVim defaults, Neovim compatibility settings
+- **plugins.vim**: Plugin configurations (commentary, surround, easymotion, which-key, text objects)
+- **editor.vim**: Window/buffer management, UI toggles, terminal, notifications
+- **code.vim**: Code navigation, LSP, refactoring, formatting
+- **git.vim**: Git operations (blame, log, history, explorer)
+- **search.vim**: Search/find operations, TODO comments
+- **debug.vim**: Debug keymaps, breakpoints, step operations
+- **test.vim**: Test framework integration, IDE-specific test runners
+- **defaults.vim**: Neovim defaults, smart selection
 
 ## Project Philosophy
 
@@ -342,7 +419,7 @@ This project aims to:
 1. **Minimize friction** for LazyVim users working in JetBrains IDEs
 2. **Maintain muscle memory** by replicating LazyVim keybindings as closely as possible
 3. **Leverage JetBrains features** where they provide better functionality than Vim equivalents
-4. **Stay minimal** - single configuration file, no build process
+4. **Stay modular** - focused modules, easy customization, no build process
 5. **Remain maintainable** - clear organization, comprehensive documentation
 
 ## Questions to Ask When Uncertain
@@ -360,5 +437,5 @@ Before making changes, consider:
 ---
 
 **Last Updated**: 2025-11-14
-**Document Version**: 1.0.0
+**Document Version**: 2.0.0 (Modular Architecture)
 **Target Audience**: AI assistants working with the lazy-idea codebase

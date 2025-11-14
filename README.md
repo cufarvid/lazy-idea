@@ -12,21 +12,37 @@ Required plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com)
 
 ## Installation
 
-1. Download the `.ideavimrc` file from this repository to your home directory:
+Clone the repository to `~/.lazy-idea`:
 
-   **Unix/Linux/macOS**
+**Unix/Linux/macOS**
 
-   ```bash
-   curl -Lo ~/.ideavimrc https://raw.githubusercontent.com/cufarvid/lazy-idea/refs/heads/main/.ideavimrc
-   ```
+```bash
+git clone https://github.com/cufarvid/lazy-idea.git ~/.lazy-idea
+```
 
-   **Windows**
+**Windows (PowerShell)**
 
-   ```powershell
-   Invoke-WebRequest -OutFile "$HOME/.ideavimrc" -Uri https://raw.githubusercontent.com/cufarvid/lazy-idea/refs/heads/main/.ideavimrc
-   ```
+```powershell
+git clone https://github.com/cufarvid/lazy-idea.git "$HOME/.lazy-idea"
+```
 
-2. Restart your JetBrains IDE
+Then restart your JetBrains IDE.
+
+### Modular Configuration
+
+The configuration is split into focused modules:
+
+- `settings.vim` - LazyVim defaults and Neovim compatibility
+- `plugins.vim` - Plugin configurations (commentary, surround, easymotion, which-key, text objects)
+- `editor.vim` - Window management, buffers, UI toggles, terminal
+- `code.vim` - Code navigation, refactoring, LSP actions
+- `git.vim` - Git operations
+- `search.vim` - Search/find operations and TODO comments
+- `debug.vim` - Debug (DAP) keymaps
+- `test.vim` - Test framework integration
+- `defaults.vim` - Neovim defaults and smart selection
+
+You can customize your setup by commenting out modules in `.ideavimrc` that you don't need.
 
 ## Configuration Notes
 
