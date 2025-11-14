@@ -23,43 +23,61 @@ lazy-idea/
 ├── LICENSE             # MIT License
 ├── CLAUDE.md           # This file - AI assistant guide
 ├── .gitattributes      # Git configuration
-└── lazy-idea/          # Configuration modules
-    ├── settings.vim    # LazyVim defaults, Neovim compatibility
-    ├── plugins.vim     # Plugin configurations
-    ├── editor.vim      # Window, buffer, UI, terminal keymaps
-    ├── code.vim        # Code navigation, LSP, refactoring
-    ├── git.vim         # Git operations
-    ├── search.vim      # Search/find, TODO comments
-    ├── debug.vim       # Debug (DAP) keymaps
-    ├── test.vim        # Test framework integration
-    └── defaults.vim    # Neovim defaults, smart selection
+└── lazy-idea/          # Configuration modules (organized by WhichKey groups)
+    ├── settings.vim       # LazyVim defaults, Neovim compatibility
+    ├── plugins.vim        # Plugin configurations
+    ├── navigation.vim     # Non-leader navigation keymaps
+    ├── buffer.vim         # <leader>b - Buffer operations
+    ├── code.vim           # <leader>c - Code actions
+    ├── debug.vim          # <leader>d - Debug
+    ├── file.vim           # <leader>f - File/find
+    ├── git.vim            # <leader>g - Git
+    ├── search.vim         # <leader>s - Search
+    ├── test.vim           # <leader>t - Test
+    ├── ui.vim             # <leader>u - UI toggles
+    ├── window.vim         # <leader>w - Window
+    ├── diagnostics.vim    # <leader>x - Diagnostics/quickfix
+    ├── tabs.vim           # <leader><tab> - Tabs
+    └── defaults.vim       # Neovim defaults, smart selection, misc
 ```
 
 ### Key Files
 
+**Core Modules:**
 - **`.ideavimrc`**: Entry point that sources all configuration modules
 - **`lazy-idea/settings.vim`**: Core settings (leader keys, visual settings, Neovim compatibility)
 - **`lazy-idea/plugins.vim`**: Plugin configurations (commentary, surround, easymotion, which-key, text objects)
-- **`lazy-idea/editor.vim`**: General editor keymaps (windows, buffers, UI, terminal, notifications)
-- **`lazy-idea/code.vim`**: Code/LSP keymaps (navigation, refactoring, actions)
-- **`lazy-idea/git.vim`**: Git operations
-- **`lazy-idea/search.vim`**: Search/find operations and TODO comments
-- **`lazy-idea/debug.vim`**: Debug (DAP) keymaps
-- **`lazy-idea/test.vim`**: Test framework integration
-- **`lazy-idea/defaults.vim`**: Neovim defaults and smart selection
+- **`lazy-idea/navigation.vim`**: Non-leader navigation keymaps (gd, gr, <C-hjkl>, [d, ]d, etc.)
+- **`lazy-idea/defaults.vim`**: Neovim defaults, smart selection, and misc keymaps
+
+**Leader Key Groups:**
+- **`lazy-idea/buffer.vim`**: `<leader>b` - Buffer operations
+- **`lazy-idea/code.vim`**: `<leader>c` - Code actions and refactoring
+- **`lazy-idea/debug.vim`**: `<leader>d` - Debug (DAP) keymaps
+- **`lazy-idea/file.vim`**: `<leader>f` - File/find operations
+- **`lazy-idea/git.vim`**: `<leader>g` - Git operations
+- **`lazy-idea/search.vim`**: `<leader>s` - Search operations
+- **`lazy-idea/test.vim`**: `<leader>t` - Test framework integration
+- **`lazy-idea/ui.vim`**: `<leader>u` - UI toggles
+- **`lazy-idea/window.vim`**: `<leader>w` - Window operations
+- **`lazy-idea/diagnostics.vim`**: `<leader>x` - Diagnostics/quickfix
+- **`lazy-idea/tabs.vim`**: `<leader><tab>` - Tab management
 
 ## Core Architecture
 
 ### Modular Configuration Structure
 
-The configuration uses a modular architecture inspired by [intellimacs](https://github.com/marcoieni/intellimacs). The main `.ideavimrc` file sources individual modules, allowing users to:
+The configuration uses a modular architecture inspired by [intellimacs](https://github.com/marcoieni/intellimacs), organized by **WhichKey groups** for easy discovery. The main `.ideavimrc` file sources individual modules, allowing users to:
 
 - **Customize easily**: Comment out modules you don't need
-- **Maintain clearly**: Each file has a focused purpose
+- **Maintain clearly**: Each file has a focused purpose (one WhichKey group per file)
 - **Debug efficiently**: Issues are isolated to specific modules
 - **Extend simply**: Add new modules without touching existing code
+- **Discover intuitively**: File names match WhichKey groups (`<leader>g` → `git.vim`)
 
 ### Module Breakdown
+
+**Core Modules:**
 
 1. **`settings.vim`** - Core Settings
    - Leader keys configuration (`<Space>` as leader, `\` as localleader)
@@ -74,60 +92,70 @@ The configuration uses a modular architecture inspired by [intellimacs](https://
    - `textobj-indent`: Indent text objects (`ai`, `ii`, `aI`, `iI`)
    - `textobj-entire`: Entire file text objects (`ag`, `ig`)
 
-3. **`editor.vim`** - General Editor Keymaps
-   - Window navigation and management (`<C-hjkl>`, splits, zoom)
-   - Line movement (`<A-jk>`)
-   - Buffer management (`<S-hl>`, delete, pin, etc.)
-   - Tab/Layout management (JetBrains-specific saved layouts)
-   - Explorer/File tree operations
-   - Terminal integration
-   - UI toggles (spell, wrap, line numbers, diagnostics, etc.)
-   - Notifications
-   - Quickfix/diagnostics navigation
-
-4. **`code.vim`** - Code/LSP Keymaps
-   - Code navigation (`gd`, `gr`, `gI`, `gy`, `gD`)
-   - Signature help (`gK`, `<C-k>`)
+3. **`navigation.vim`** - Non-Leader Navigation Keymaps
+   - Code navigation (`gd`, `gr`, `gI`, `gy`, `gD`, `gK`)
    - Reference navigation (`]]`, `[[`, `<A-n>`, `<A-p>`)
-   - Code actions and refactoring (`<leader>ca`, `<leader>cA`)
-   - Rename operations (`<leader>cr`, `<leader>cR`)
-   - Formatting (`<leader>cf`)
-   - IDE-specific customizations (e.g., Rider file rename)
+   - Window navigation (`<C-hjkl>`, `<C-Up/Down/Left/Right>`)
+   - Buffer navigation (`<S-hl>`, `[b`, `]b`)
+   - Line movement (`<A-jk>`)
+   - Jump navigation (`[q`, `]q`, `[d`, `]d`, `[e`, `]e`, `[w`, `]w`, `[t`, `]t`)
+   - Misc (`<esc>`, `gco`, `gcO`, `<C-/>`)
 
-5. **`git.vim`** - Git Operations
-   - Git UI (`<leader>gg`, `<leader>gG`)
-   - Git blame (`<leader>gb`)
-   - Git log/history (`<leader>gl`, `<leader>gf`)
-   - Git status and commits
-   - Git explorer
-
-6. **`search.vim`** - Search/Find Operations
-   - File finding (Telescope-like: `<leader><space>`, `<leader>ff`)
-   - Buffer switching (`<leader>,`, `<leader>fb`)
-   - Grep operations (`<leader>/`, `<leader>sg`)
-   - Recent files (`<leader>fr`)
-   - Symbol search (`<leader>ss`, `<leader>sS`)
-   - Word search (`<leader>sw`, `<leader>sW`)
-   - Various search modes (diagnostics, help, keymaps, marks, etc.)
-   - TODO comments navigation (`<leader>st`, `[t`, `]t`)
-
-7. **`debug.vim`** - Debug (DAP) Keymaps
-   - Breakpoint management (`<leader>db`, `<leader>dB`)
-   - Debug controls (`<leader>dc`, `<leader>dt`)
-   - Step operations (`<leader>di`, `<leader>do`, `<leader>dO`)
-   - Debug UI (`<leader>du`, `<leader>de`)
-   - REPL toggle (`<leader>dr`)
-
-8. **`test.vim`** - Test Framework Integration
-   - Run tests (`<leader>tl`, `<leader>tr`, `<leader>tt`)
-   - Test output (`<leader>to`, `<leader>tO`)
-   - Debug tests (`<leader>td`)
-   - IDE-specific test runners (e.g., Rider unit tests)
-
-9. **`defaults.vim`** - Neovim Defaults & Selection
+4. **`defaults.vim`** - Neovim Defaults & Misc
    - Smart selection (`<C-Space>`, `<BS>`)
    - Neovim-standard mappings (`Y`, `Q`, `<C-U>`, `<C-W>`)
    - Visual mode enhancements (keep selection after indent)
+   - Common keymaps (`<leader><space>`, `<leader>,`, `<leader>/`, `<leader>:`)
+   - Explorer shortcuts (`<leader>e`, `<leader>E`)
+   - Misc (`<leader>K`, `<leader>l`, `<leader>L`, `<leader>qq`)
+
+**Leader Key Group Modules:**
+
+5. **`buffer.vim`** - `<leader>b` - Buffer Operations
+   - Switch, delete, pin, manage buffers
+   - All keymaps: `bb`, `bd`, `bD`, `bo`, `bl`, `bp`, `bP`, `br`, `be`
+
+6. **`code.vim`** - `<leader>c` - Code Actions
+   - Code actions, refactoring, rename, format
+   - All keymaps: `ca`, `cA`, `cr`, `cR`, `cf`, `cd`, `cl`, `cc`, `cC`
+   - IDE-specific: Rider file rename
+
+7. **`debug.vim`** - `<leader>d` - Debug (DAP)
+   - Breakpoints, step operations, debug controls
+   - All keymaps: `da`, `db`, `dB`, `dc`, `dC`, `dg`, `di`, `dj`, `dk`, `dl`, `do`, `dO`, `dp`, `dr`, `ds`, `dt`, `dw`, `de`, `du`
+
+8. **`file.vim`** - `<leader>f` - File/Find Operations
+   - File finding, buffers, recent files, explorer, terminal
+   - All keymaps: `fb`, `fc`, `ff`, `fF`, `fg`, `fr`, `fR`, `fn`, `fe`, `fE`, `ft`, `fT`
+
+9. **`git.vim`** - `<leader>g` - Git Operations
+   - Git UI, blame, log, history, status, explorer
+   - All keymaps: `gg`, `gG`, `gb`, `gB`, `gf`, `gl`, `gL`, `gc`, `gs`, `ge`
+
+10. **`search.vim`** - `<leader>s` - Search Operations
+    - Grep, symbol search, diagnostics, TODO comments
+    - All keymaps: `s"`, `sa`, `sb`, `sc`, `sC`, `sd`, `sD`, `sg`, `sG`, `sh`, `sH`, `sj`, `sk`, `sl`, `sm`, `sM`, `snd`, `so`, `sq`, `sR`, `ss`, `sS`, `st`, `sT`, `sw`, `sW`
+
+11. **`test.vim`** - `<leader>t` - Test Framework Integration
+    - Run, debug, and manage tests
+    - All keymaps: `tl`, `to`, `tO`, `tr`, `ts`, `tS`, `tt`, `tT`, `tw`, `td`
+    - IDE-specific: Rider unit test actions
+
+12. **`ui.vim`** - `<leader>u` - UI Toggles
+    - Toggle spell, wrap, line numbers, diagnostics, inlay hints, etc.
+    - All keymaps: `ur`, `uf`, `uF`, `us`, `uw`, `uL`, `ud`, `ul`, `uc`, `uT`, `ub`, `uh`, `ui`, `uI`, `uC`, `un`
+
+13. **`window.vim`** - `<leader>w` - Window Operations
+    - Split, delete, maximize windows
+    - All keymaps: `-`, `|`, `wd`, `wm`
+
+14. **`diagnostics.vim`** - `<leader>x` - Diagnostics/Quickfix
+    - Location list, quickfix, TODO trouble
+    - All keymaps: `xl`, `xq`, `xt`, `xT`
+
+15. **`tabs.vim`** - `<leader><tab>` - Tab Management
+    - JetBrains saved layouts
+    - All keymaps: `<tab>l`, `<tab>o`, `<tab>f`, `<tab><tab>`, `<tab>]`, `<tab>[`, `<tab>d`
 
 ### Plugin Integration Pattern
 
@@ -327,13 +355,20 @@ To support additional patterns beyond `TODO` (like `FIX`, `PERF`), users must co
 
 1. **Identify the LazyVim mapping** you want to replicate
 2. **Find the corresponding JetBrains action** using `:action VimFindActionIdAction`
-3. **Choose the appropriate module** based on the mapping category:
-   - Editor operations → `editor.vim`
-   - Code/LSP operations → `code.vim`
-   - Git operations → `git.vim`
-   - Search/find → `search.vim`
-   - Debug → `debug.vim`
-   - Test → `test.vim`
+3. **Choose the appropriate module** based on the **WhichKey group**:
+   - `<leader>b` keymaps → `buffer.vim`
+   - `<leader>c` keymaps → `code.vim`
+   - `<leader>d` keymaps → `debug.vim`
+   - `<leader>f` keymaps → `file.vim`
+   - `<leader>g` keymaps → `git.vim`
+   - `<leader>s` keymaps → `search.vim`
+   - `<leader>t` keymaps → `test.vim`
+   - `<leader>u` keymaps → `ui.vim`
+   - `<leader>w` keymaps → `window.vim`
+   - `<leader>x` keymaps → `diagnostics.vim`
+   - `<leader><tab>` keymaps → `tabs.vim`
+   - Non-leader keymaps (gd, gr, <C-h>, [d, etc.) → `navigation.vim`
+   - Misc/common keymaps (`<leader><space>`, `<leader>,`, etc.) → `defaults.vim`
    - Core settings → `settings.vim`
    - Plugin configs → `plugins.vim`
 4. **Follow the pattern**:
@@ -352,7 +387,7 @@ To support additional patterns beyond `TODO` (like `FIX`, `PERF`), users must co
 
 ### When Fixing Bugs
 
-1. **Identify the affected module(s)** (e.g., `code.vim`, `editor.vim`)
+1. **Identify the affected module** by WhichKey group (e.g., `<leader>g` → `git.vim`, `gd` → `navigation.vim`)
 2. **Locate the affected mapping(s)** in that module
 3. **Test the fix** in the relevant JetBrains IDE(s)
 4. **Verify no regression** in other mappings
@@ -402,16 +437,26 @@ To support additional patterns beyond `TODO` (like `FIX`, `PERF`), users must co
 
 ### Module References
 
-When referencing code, use module names and descriptions:
+When referencing code, use module names organized by WhichKey groups:
+
+**Core Modules:**
 - **settings.vim**: LazyVim defaults, Neovim compatibility settings
 - **plugins.vim**: Plugin configurations (commentary, surround, easymotion, which-key, text objects)
-- **editor.vim**: Window/buffer management, UI toggles, terminal, notifications
-- **code.vim**: Code navigation, LSP, refactoring, formatting
-- **git.vim**: Git operations (blame, log, history, explorer)
-- **search.vim**: Search/find operations, TODO comments
-- **debug.vim**: Debug keymaps, breakpoints, step operations
-- **test.vim**: Test framework integration, IDE-specific test runners
-- **defaults.vim**: Neovim defaults, smart selection
+- **navigation.vim**: Non-leader navigation keymaps (gd, gr, <C-hjkl>, [d, ]d, etc.)
+- **defaults.vim**: Neovim defaults, smart selection, misc keymaps
+
+**Leader Key Groups:**
+- **buffer.vim**: `<leader>b` - Buffer operations
+- **code.vim**: `<leader>c` - Code actions and refactoring
+- **debug.vim**: `<leader>d` - Debug (DAP) keymaps
+- **file.vim**: `<leader>f` - File/find operations
+- **git.vim**: `<leader>g` - Git operations
+- **search.vim**: `<leader>s` - Search operations
+- **test.vim**: `<leader>t` - Test framework integration
+- **ui.vim**: `<leader>u` - UI toggles
+- **window.vim**: `<leader>w` - Window operations
+- **diagnostics.vim**: `<leader>x` - Diagnostics/quickfix
+- **tabs.vim**: `<leader><tab>` - Tab management
 
 ## Project Philosophy
 

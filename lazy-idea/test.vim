@@ -1,7 +1,6 @@
 " ========================================
-" Test Keymaps
+" Test Keymaps (<leader>t)
 " ========================================
-" https://www.lazyvim.org/configuration/keymaps
 
 " Variables for IDE-specific customizations
 let is_ide_rider = &ide == 'JetBrains Rider'
@@ -39,7 +38,6 @@ if is_ide_rider | nmap <leader>tT <Action>(RiderUnitTestRunSolutionAction) | end
 let g:WhichKeyDesc_test_watch = "<leader>tw Toggle Watch (Neotest)"
 nmap <leader>tw :echo 'Not yet implmented.'<cr>
 
-" nvim-dap
 let g:WhichKeyDesc_test_debug = "<leader>td Debug Nearest"
 nmap <leader>td <Action>(ChooseDebugConfiguration)
 if is_ide_rider | nmap <leader>td <Action>(RiderUnitTestDebugContextAction) | endif

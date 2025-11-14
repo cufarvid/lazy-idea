@@ -1,7 +1,6 @@
 " ========================================
-" Debug (DAP) Keymaps
+" Debug Keymaps (<leader>d)
 " ========================================
-" https://www.lazyvim.org/configuration/keymaps
 
 let g:WhichKeyDesc_debug_args = "<leader>da Run with Args"
 nmap <leader>da <Action>(ChooseRunConfiguration)
@@ -53,10 +52,6 @@ nmap <leader>dt <Action>(Stop)
 
 let g:WhichKeyDesc_debug_widgets = "<leader>dw Widgets"
 nmap <leader>dw :echo 'There is no equivalent mapping for Widgets.'<cr>
-
-" ========================================
-" Debug UI
-" ========================================
 
 let g:WhichKeyDesc_debug_eval = "<leader>de Eval"
 nmap <leader>de <Action>(EvaluateExpression)

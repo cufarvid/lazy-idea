@@ -30,17 +30,26 @@ Then restart your JetBrains IDE.
 
 ### Modular Configuration
 
-The configuration is split into focused modules:
+The configuration is organized by **WhichKey groups** for easy discovery:
 
+**Core Modules:**
 - `settings.vim` - LazyVim defaults and Neovim compatibility
 - `plugins.vim` - Plugin configurations (commentary, surround, easymotion, which-key, text objects)
-- `editor.vim` - Window management, buffers, UI toggles, terminal
-- `code.vim` - Code navigation, refactoring, LSP actions
-- `git.vim` - Git operations
-- `search.vim` - Search/find operations and TODO comments
-- `debug.vim` - Debug (DAP) keymaps
-- `test.vim` - Test framework integration
-- `defaults.vim` - Neovim defaults and smart selection
+- `navigation.vim` - Non-leader navigation keymaps (gd, gr, <C-hjkl>, [d, ]d, etc.)
+- `defaults.vim` - Neovim defaults, smart selection, and misc keymaps
+
+**Leader Key Groups:**
+- `buffer.vim` - `<leader>b` - Buffer operations
+- `code.vim` - `<leader>c` - Code actions and refactoring
+- `debug.vim` - `<leader>d` - Debug (DAP) keymaps
+- `file.vim` - `<leader>f` - File/find operations
+- `git.vim` - `<leader>g` - Git operations
+- `search.vim` - `<leader>s` - Search operations
+- `test.vim` - `<leader>t` - Test framework integration
+- `ui.vim` - `<leader>u` - UI toggles
+- `window.vim` - `<leader>w` - Window operations
+- `diagnostics.vim` - `<leader>x` - Diagnostics/quickfix
+- `tabs.vim` - `<leader><tab>` - Tab management
 
 You can customize your setup by commenting out modules in `.ideavimrc` that you don't need.
 

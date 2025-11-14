@@ -1,7 +1,6 @@
 " ========================================
-" Git Keymaps
+" Git Keymaps (<leader>g)
 " ========================================
-" https://www.lazyvim.org/configuration/keymaps
 
 let g:WhichKeyDesc_git_ui = "<leader>gg GitUi (Root Dir)"
 nmap <leader>gg <Action>(ActivateCommitToolWindow)

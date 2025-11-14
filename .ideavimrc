@@ -22,23 +22,21 @@ source ~/.lazy-idea/lazy-idea/settings.vim
 " Plugin configurations (commentary, surround, easymotion, which-key, text objects)
 source ~/.lazy-idea/lazy-idea/plugins.vim
 
-" Editor keymaps (windows, buffers, UI, terminal, notifications)
-source ~/.lazy-idea/lazy-idea/editor.vim
+" Non-leader navigation keymaps (gd, gr, <C-hjkl>, [d, ]d, etc.)
+source ~/.lazy-idea/lazy-idea/navigation.vim
 
-" Code/LSP keymaps (navigation, refactoring, actions)
-source ~/.lazy-idea/lazy-idea/code.vim
+" Leader key groups (organized by WhichKey groups)
+source ~/.lazy-idea/lazy-idea/buffer.vim        " <leader>b - Buffer operations
+source ~/.lazy-idea/lazy-idea/code.vim          " <leader>c - Code actions
+source ~/.lazy-idea/lazy-idea/debug.vim         " <leader>d - Debug
+source ~/.lazy-idea/lazy-idea/file.vim          " <leader>f - File/find
+source ~/.lazy-idea/lazy-idea/git.vim           " <leader>g - Git
+source ~/.lazy-idea/lazy-idea/search.vim        " <leader>s - Search
+source ~/.lazy-idea/lazy-idea/test.vim          " <leader>t - Test
+source ~/.lazy-idea/lazy-idea/ui.vim            " <leader>u - UI toggles
+source ~/.lazy-idea/lazy-idea/window.vim        " <leader>w - Window
+source ~/.lazy-idea/lazy-idea/diagnostics.vim   " <leader>x - Diagnostics/quickfix
+source ~/.lazy-idea/lazy-idea/tabs.vim          " <leader><tab> - Tabs
 
-" Git operations
-source ~/.lazy-idea/lazy-idea/git.vim
-
-" Search/Find operations (Telescope-like, Todo comments)
-source ~/.lazy-idea/lazy-idea/search.vim
-
-" Debug (DAP) keymaps
-source ~/.lazy-idea/lazy-idea/debug.vim
-
-" Test framework integration
-source ~/.lazy-idea/lazy-idea/test.vim
-
-" Neovim defaults and smart selection
+" Neovim defaults, smart selection, and misc keymaps
 source ~/.lazy-idea/lazy-idea/defaults.vim

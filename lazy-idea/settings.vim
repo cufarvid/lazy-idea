@@ -30,7 +30,7 @@ set clipboard+=unnamedplus
 " ========================================
 " Neovim Compatibility Settings
 " ========================================
-" https://neovim.io/doc/user/diff.html#_default-mappings
+" https://neovim.io/doc/user/vim_diff.html#_default-mappings
 " https://github.com/mikeslattery/nvim-defaults.vim/blob/main/plugin/.vimrc
 
 set backspace=indent,eol,start

@@ -1,40 +1,6 @@
 " ========================================
-" Search/Find Keymaps (Telescope-like)
+" Search Keymaps (<leader>s)
 " ========================================
-" https://www.lazyvim.org/configuration/keymaps
-
-let g:WhichKeyDesc_find_files = "<leader><space> Find Files (Root Dir)"
-nmap <leader><space> <Action>(GotoFile)
-
-let g:WhichKeyDesc_buffers = "<leader>, Buffers"
-nmap <leader>, <Action>(Switcher)
-
-let g:WhichKeyDesc_grep = "<leader>/ Grep (Root Dir)"
-nmap <leader>/ <Action>(FindInPath)
-
-let g:WhichKeyDesc_command_history = "<leader>: Command History"
-nmap <leader>: :history<cr>
-
-let g:WhichKeyDesc_find_buffers = "<leader>fb Buffers"
-nmap <leader>fb <Action>(Switcher)
-
-let g:WhichKeyDesc_find_config = "<leader>fc Find Config File"
-nmap <leader>fc <Action>(GotoFile)
-
-let g:WhichKeyDesc_find_files_alt = "<leader>ff Find Files (Root Dir)"
-nmap <leader>ff <Action>(GotoFile)
-
-let g:WhichKeyDesc_find_files_cwd = "<leader>fF Find Files (cwd)"
-nmap <leader>fF <Action>(GotoFile)
-
-let g:WhichKeyDesc_find_git_files = "<leader>fg Find Files (git-files)"
-nmap <leader>fg <Action>(GotoFile)
-
-let g:WhichKeyDesc_find_recent = "<leader>fr Recent"
-nmap <leader>fr <Action>(RecentFiles)
-
-let g:WhichKeyDesc_find_recent_cwd = "<leader>fR Recent (cwd)"
-nmap <leader>fR <Action>(RecentFiles)
 
 let g:WhichKeyDesc_search_registers = "<leader>s\" Registers"
 nmap <leader>s" :registers<cr>
@@ -84,6 +50,9 @@ nmap <leader>sm :marks<cr>
 let g:WhichKeyDesc_search_man = "<leader>sM Man Pages"
 nmap <leader>sM <Action>(ShowDocumentation)
 
+let g:WhichKeyDesc_search_dismiss = "<leader>snd Dismiss All"
+nmap <leader>snd <Action>(ClearAllNotifications)
+
 let g:WhichKeyDesc_search_options = "<leader>so Options"
 nmap <leader>so <Action>(ShowSettings)
 
@@ -99,6 +68,12 @@ nmap <leader>ss <Action>(GotoSymbol)
 let g:WhichKeyDesc_search_symbol_workspace = "<leader>sS Goto Symbol (Workspace)"
 nmap <leader>sS <Action>(GotoSymbol)
 
+let g:WhichKeyDesc_search_todo = "<leader>st Todo"
+nmap <leader>st <Action>(ActivateTODOToolWindow)
+
+let g:WhichKeyDesc_search_todo_fixme = "<leader>sT Todo/Fix/Fixme"
+nmap <leader>sT <Action>(ActivateTODOToolWindow)
+
 let g:WhichKeyDesc_search_word = "<leader>sw Visual selection or word (Root Dir)"
 nmap <leader>sw mzviw<Action>(FindInPath)<esc>`z
 vmap <leader>sw <Action>(FindInPath)
@@ -106,25 +81,3 @@ vmap <leader>sw <Action>(FindInPath)
 let g:WhichKeyDesc_search_word_cwd = "<leader>sW Visual selection or word (cwd)"
 nmap <leader>sW mzviw<Action>(FindInPath)<esc>`z
 vmap <leader>sW <Action>(FindInPath)
-
-" ========================================
-" Todo Comments
-" ========================================
-
-let g:WhichKeyDesc_search_todo = "<leader>st Todo"
-nmap <leader>st <Action>(ActivateTODOToolWindow)
-
-let g:WhichKeyDesc_search_todo_fixme = "<leader>sT Todo/Fix/Fixme"
-nmap <leader>sT <Action>(ActivateTODOToolWindow)
-
-let g:WhichKeyDesc_quickfix_todo = "<leader>xt Todo (Trouble)"
-nmap <leader>xt <Action>(ActivateTODOToolWindow)
-
-let g:WhichKeyDesc_quickfix_todo_fixme = "<leader>xT Todo/Fix/Fixme (Trouble)"
-nmap <leader>xT <Action>(ActivateTODOToolWindow)
-
-let g:WhichKeyDesc_todo_prev = "[t Previous Todo Comment"
-nmap [t ?\(TODO\|FIX\|HACK\|WARN\|PERF\|NOTE\|TEST\):<cr>
-
-let g:WhichKeyDesc_todo_next = "]t Next Todo Comment"
-nmap ]t /\(TODO\|FIX\|HACK\|WARN\|PERF\|NOTE\|TEST\):<cr>

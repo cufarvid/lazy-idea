@@ -35,6 +35,7 @@ omap s <Plug>(easymotion-s)
 set which-key
 
 " Which-Key group descriptions
+let g:WhichKeyDesc_leader_b = "<leader>b buffer"
 let g:WhichKeyDesc_leader_c = "<leader>c code"
 let g:WhichKeyDesc_leader_d = "<leader>d debug"
 let g:WhichKeyDesc_leader_f = "<leader>f file/find"
