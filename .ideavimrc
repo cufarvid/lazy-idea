@@ -106,6 +106,7 @@ let g:WhichKeyDesc_leader_tab = "<leader><tab> tabs"
 set matchit  " Extended matching - A Neovim default plugin
 set textobj-indent  " Indent text objects (ai, ii, aI, iI)
 set textobj-entire  " Entire file text objects (ag, ig)
+set mini-ai " Extended text objects for quotes and blocks (aq, iq, ab, ib)
 
 " Remap ai to behave like aI to match LazyVim behavior
 " (LazyVim's vai includes closing lines)
@@ -122,6 +123,11 @@ let g:WhichKeyDesc_textobj_i_entire = "ig entire file"
 xmap ig <Plug>textobj-entire-i
 omap ig <Plug>textobj-entire-i
 
+" Mini.ai - Quotes and blocks
+let g:WhichKeyDesc_textobj_aq = "aq `\"' quote"
+let g:WhichKeyDesc_textobj_iq = "iq `\"' quote"
+let g:WhichKeyDesc_textobj_ab = "ab )]} block"
+let g:WhichKeyDesc_textobj_ib = "ib )]} block"
 
 " ========================================
 " Key Mappings
