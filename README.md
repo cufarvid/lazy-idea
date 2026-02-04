@@ -12,29 +12,27 @@ Required plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com)
 
 ## Installation
 
-1. Download the `.ideavimrc` file from this repository to your home directory:
+Clone the repository to `~/.lazy-idea`:
 
-   **Unix/Linux/macOS**
+**Unix/Linux/macOS**
 
-   ```bash
-   curl -Lo ~/.ideavimrc https://raw.githubusercontent.com/cufarvid/lazy-idea/refs/heads/main/.ideavimrc
-   ```
+```bash
+git clone https://github.com/cufarvid/lazy-idea.git ~/.lazy-idea
+```
 
-   **Windows**
+**Windows (PowerShell)**
 
-   ```powershell
-   Invoke-WebRequest -OutFile "$HOME/.ideavimrc" -Uri https://raw.githubusercontent.com/cufarvid/lazy-idea/refs/heads/main/.ideavimrc
-   ```
+```powershell
+git clone https://github.com/cufarvid/lazy-idea.git "$HOME/.lazy-idea"
+```
 
-2. Restart your JetBrains IDE
+Then add the following line to your `~/.ideavimrc` (create it if it doesn't exist):
 
-## Configuration Notes
+```vim
+source ~/.lazy-idea/lazy-idea.vim
+```
 
-### TODO Navigation
-
-The TODO navigation keymaps (`<leader>st`, `<leader>xt`) use IDEA's built-in TODO tool window.
-
-**Note:** To support additional patterns beyond `TODO` (like `FIX` or `PERF`), configure them in `Settings → Editor → TODO → Patterns`.
+Any custom settings, plugins, or overrides you add after the `source` line will take precedence. Then restart your JetBrains IDE.
 
 ## Development
 
@@ -66,6 +64,7 @@ Potential integrations with LazyVim features:
 
 - Local leader key mappings are not currently supported by IdeaVim
 - Some LazyVim features don't have direct equivalents in JetBrains IDEs
+- The TODO navigation keymaps (`<leader>st`, `<leader>xt`) use IDEA's built-in TODO tool window. To support additional patterns beyond `TODO` (like `FIX` or `PERF`), configure them in `Settings → Editor → TODO → Patterns`.
 
 ## Credits
 
