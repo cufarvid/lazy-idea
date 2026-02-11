@@ -16,6 +16,14 @@ set number
 set relativenumber
 " Lines of context
 set scrolloff=4
+" Highlight matches with last search pattern
+set hlsearch
+" Show where search pattern typed so far matches
+set incsearch
+" Ignore case in search patterns
+set ignorecase
+" Override ignorecase if search pattern has uppercase
+set smartcase
 " Round indent
 set shiftround
 " Columns of context
@@ -36,6 +44,5 @@ set clipboard+=unnamedplus
 " https://github.com/mikeslattery/nvim-defaults.vim/blob/main/plugin/.vimrc
 
 set backspace=indent,eol,start
-set formatoptions=tcqj
 set listchars=tab:>\ ,trail:-,nbsp:+
 set shortmess=filnxtToOF
