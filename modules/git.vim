@@ -3,10 +3,18 @@
 " ========================================
 
 let g:WhichKeyDesc_git_ui = "<leader>gg GitUi (Root Dir)"
-nmap <leader>gg <Action>(ActivateCommitToolWindow)
+if exists('g:loaded_lazygit')
+    nmap <leader>gg <Action>(Lazygit.Toggle)
+else
+    nmap <leader>gg <Action>(ActivateCommitToolWindow)
+endif
 
 let g:WhichKeyDesc_git_ui_cwd = "<leader>gG GitUi (cwd)"
-nmap <leader>gG <Action>(ActivateCommitToolWindow)
+if exists('g:loaded_lazygit')
+    nmap <leader>gG <Action>(Lazygit.Toggle)
+else
+    nmap <leader>gG <Action>(ActivateCommitToolWindow)
+endif
 
 let g:WhichKeyDesc_git_blame = "<leader>gb Git Blame Line"
 nmap <leader>gb <Action>(Annotate)
@@ -31,3 +39,4 @@ nmap <leader>gs <Action>(Vcs.Show.Log)
 
 let g:WhichKeyDesc_git_explorer = "<leader>ge Git Explorer"
 nmap <leader>ge <Action>(ActivateVersionControlToolWindow)
+
