@@ -10,6 +10,10 @@ Required plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com)
 - [Which-Key](https://github.com/TheBlob42/idea-which-key)
 - [EasyMotion](https://github.com/AlexPl292/IdeaVim-EasyMotion)
 
+Optional plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com):
+
+- [LazyGit](https://github.com/ckob/lazygit-intellij-plugin)
+
 ## Installation
 
 Clone the repository to `~/.lazy-idea`:
