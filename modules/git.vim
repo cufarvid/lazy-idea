@@ -11,7 +11,7 @@ endif
 
 let g:WhichKeyDesc_git_ui_cwd = "<leader>gG GitUi (cwd)"
 if exists('g:loaded_lazygit')
-    nmap <leader>gG <Action>(Lazygit.Toggle)
+    nmap <leader>gG <Action>(Lazygit.ToggleCurrentDir)
 else
     nmap <leader>gG <Action>(ActivateCommitToolWindow)
 endif
