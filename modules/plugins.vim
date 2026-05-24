@@ -54,6 +54,9 @@ set which-key
 " matchit - Extended matching
 set matchit
 
+" highlightedyank - Highlights the yanked region
+set highlightedyank
+
 " textobj-indent - Indent text objects (ai, ii, aI, iI)
 set textobj-indent
 " Remap ai to behave like aI to match LazyVim behavior
