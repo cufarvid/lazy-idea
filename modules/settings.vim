@@ -20,6 +20,8 @@ set scrolloff=4
 set hlsearch
 " Show where search pattern typed so far matches
 set incsearch
+" Preview substitutions live as you type (requires IdeaVim >= 2.39.0)
+set inccommand=nosplit
 " Ignore case in search patterns
 set ignorecase
 " Override ignorecase if search pattern has uppercase

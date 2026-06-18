@@ -6,7 +6,7 @@
 
 Required plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com):
 
-- [IdeaVim](https://github.com/JetBrains/ideavim)
+- [IdeaVim](https://github.com/JetBrains/ideavim) (>= 2.39.0, for `inccommand` support)
 - [Which-Key](https://github.com/TheBlob42/idea-which-key)
 - [EasyMotion](https://github.com/AlexPl292/IdeaVim-EasyMotion)
 
