@@ -38,6 +38,10 @@ omap s <Plug>(easymotion-s)
 
 " NERDTree - File Explorer (as a substitute for NeoTree)
 set NERDTree
+" Keep Project View navigation keys available when no editor is open.
+" OutsideEditorKeyDispatcher otherwise shadows NERDTree's parent dispatcher.
+set noideaoutsideeditor
+
 let g:NERDTreeMapActivateNode = "l"
 let g:NERDTreeMapNewFile = "a"
 let g:NERDTreeMapNewDir = "A"
@@ -47,6 +51,9 @@ let g:NERDTreeMapOpenVSplit = "s"
 let g:NERDTreeMapPreviewVSplit = "gs"
 let g:NERDTreeMapCloseDir = "h"
 let g:NERDTreeMapCloseChildren = "z"
+
+" Re-arm NERDTree if the Project View component is rebuilt.
+nnoremap <silent> <leader>nR :set noNERDTree<CR>:set NERDTree<CR>
 
 " Which-Key - Key binding hints
 set which-key
